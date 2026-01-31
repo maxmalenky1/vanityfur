@@ -1,7 +1,8 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { Playfair_Display, Inter } from 'next/font/google'
+import { Playfair_Display, Inter, Great_Vibes } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 export const viewport: Viewport = {
@@ -17,6 +18,7 @@ export const viewport: Viewport = {
 
 const _playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-serif' });
 const _inter = Inter({ subsets: ["latin"], variable: '--font-sans' });
+const _greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"], variable: '--font-logo' });
 
 export const metadata: Metadata = {
   title: 'Vanity Fur Pet Parlor | Best Pet Grooming in Cumming, GA | Dog & Cat Grooming',
@@ -62,20 +64,18 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
         url: '/icon.svg',
         type: 'image/svg+xml',
       },
+      {
+        url: '/favicon.jpg',
+        sizes: '32x32',
+      },
     ],
-    apple: '/apple-icon.png',
+    apple: '/apple-touch-icon.jpg',
+    shortcut: '/favicon.jpg',
   },
+  manifest: '/manifest.json',
 }
 
 const jsonLd = {
@@ -109,7 +109,12 @@ const jsonLd = {
     }
   ],
   sameAs: [
-    'https://share.google/8LdmM0BiM7AMGIcL3'
+    'https://share.google/8LdmM0BiM7AMGIcL3',
+    'https://www.facebook.com/tracey.moffittcuthbertson',
+    'https://www.instagram.com/vanityfur.us/',
+    'https://x.com/vanityfur',
+    'https://www.yelp.com/biz/vanity-fur-pet-parlor-cumming',
+    'https://www.youtube.com/@VanityFurPetParlor'
   ],
   priceRange: '$$',
   servesCuisine: 'Pet Grooming',
@@ -127,15 +132,33 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${_playfair.variable} ${_inter.variable}`}>
+    <html lang="en" className={`${_playfair.variable} ${_inter.variable} ${_greatVibes.variable}`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const stored = localStorage.getItem('vanity-fur-theme');
+                const theme = stored || 'dark';
+                document.documentElement.classList.add(theme);
+              })();
+            `,
+          }}
+        />
       </head>
       <body className="font-sans antialiased">
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          storageKey="vanity-fur-theme"
+        >
+          {children}
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

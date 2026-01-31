@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import { Menu, X, PawPrint } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -20,9 +21,9 @@ export function Header() {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? "bg-card/80 backdrop-blur-xl shadow-lg shadow-foreground/5" 
-          : "bg-transparent"
+        isScrolled || isMenuOpen
+          ? "bg-card/95 backdrop-blur-xl shadow-lg shadow-foreground/5" 
+          : "bg-card/50 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none"
       }`}
     >
       <div className="container mx-auto px-6 py-4">
@@ -32,7 +33,7 @@ export function Header() {
             <div className="relative w-10 h-10 bg-primary rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
               <PawPrint className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="text-xl font-serif font-semibold tracking-tight text-foreground">
+            <span className="text-2xl font-logo tracking-wide text-foreground" style={{ fontFamily: 'var(--font-logo)' }}>
               Vanity Fur
             </span>
           </Link>
@@ -57,8 +58,9 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Button & Theme Toggle */}
+          <div className="hidden md:flex items-center gap-2">
+            <ThemeToggle />
             <Button 
               asChild
               className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-6 transition-all duration-300 hover:shadow-lg hover:shadow-foreground/20 hover:-translate-y-0.5"
@@ -67,20 +69,30 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            type="button"
-            className="md:hidden p-2 text-foreground hover:bg-muted rounded-full transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Theme Toggle & Menu Button */}
+          <div className="md:hidden flex items-center gap-1">
+            <ThemeToggle />
+            <button
+              type="button"
+              className="p-3 text-foreground hover:bg-muted rounded-full transition-colors flex items-center justify-center"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ${isMenuOpen ? "max-h-80 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
-          <nav className="flex flex-col gap-1 pb-4">
+        <div 
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen 
+              ? "max-h-[400px] opacity-100 mt-4 pointer-events-auto" 
+              : "max-h-0 opacity-0 pointer-events-none"
+          }`}
+        >
+          <nav className="flex flex-col gap-1 pb-4 bg-card/95 rounded-xl p-2">
             {[
               { href: "/", label: "Home" },
               { href: "/about", label: "About" },
@@ -91,7 +103,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-all duration-200"
+                className="px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-muted rounded-lg transition-all duration-200 active:scale-[0.98]"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
@@ -99,9 +111,9 @@ export function Header() {
             ))}
             <Button 
               asChild
-              className="mt-2 bg-foreground text-background hover:bg-foreground/90 rounded-full"
+              className="mt-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full h-12"
             >
-              <Link href="/contact">Book Appointment</Link>
+              <Link href="/contact" onClick={() => setIsMenuOpen(false)}>Book Appointment</Link>
             </Button>
           </nav>
         </div>

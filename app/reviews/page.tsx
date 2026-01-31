@@ -1,9 +1,8 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight, Star, Users, Award, Heart, Quote, ArrowRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, Star, Users, Award, Heart, Quote, ArrowRight, MapPin, Navigation } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -297,21 +296,39 @@ export default function ReviewsPage() {
               </div>
             </div>
 
-            {/* Dots */}
-            <div className="flex justify-center gap-3 mt-8">
-              {reviews.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setIsAutoPlaying(false)
-                    setCurrentReview(index)
-                  }}
-                  className={`h-2 rounded-full transition-all duration-500 ${
-                    index === currentReview ? "w-8 bg-primary" : "w-2 bg-border hover:bg-muted-foreground"
-                  }`}
-                  aria-label={`Go to review ${index + 1}`}
-                />
-              ))}
+            {/* Dots - Show limited dots with grouping */}
+            <div className="flex flex-col items-center gap-3 mt-8">
+              <div className="flex justify-center gap-2">
+                {(() => {
+                  const maxDots = 7
+                  const totalReviews = reviews.length
+                  let startIdx = Math.max(0, currentReview - Math.floor(maxDots / 2))
+                  const endIdx = Math.min(totalReviews, startIdx + maxDots)
+                  if (endIdx - startIdx < maxDots) {
+                    startIdx = Math.max(0, endIdx - maxDots)
+                  }
+                  
+                  return reviews.slice(startIdx, endIdx).map((_, i) => {
+                    const actualIndex = startIdx + i
+                    return (
+                      <button
+                        key={actualIndex}
+                        onClick={() => {
+                          setIsAutoPlaying(false)
+                          setCurrentReview(actualIndex)
+                        }}
+                        className={`h-2 rounded-full transition-all duration-500 ${
+                          actualIndex === currentReview ? "w-6 bg-primary" : "w-2 bg-border hover:bg-muted-foreground"
+                        }`}
+                        aria-label={`Go to review ${actualIndex + 1}`}
+                      />
+                    )
+                  })
+                })()}
+              </div>
+              <p className="text-sm text-muted-foreground">
+                {currentReview + 1} of {reviews.length} reviews
+              </p>
             </div>
           </div>
         </div>
@@ -349,8 +366,103 @@ export default function ReviewsPage() {
         </div>
       </section>
 
+      {/* Yelp Reviews Section */}
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-[#FF1A1A] rounded-2xl shadow-lg mb-6">
+              <svg className="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24" aria-label="Yelp">
+                <path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.905-4.308a1.072 1.072 0 0 1 1.596-.206 9.194 9.194 0 0 1 2.364 3.252 1.073 1.073 0 0 1-.694 1.459zm-3.595 5.867a1.073 1.073 0 0 1-.72 1.26 9.292 9.292 0 0 1-3.93.27c-.54-.105-.9-.54-.96-1.08l-.54-4.86c-.108-.95 1.092-1.636 1.812-.97l3.75 3.463.588 1.917zm-6.012 1.53c-.06.54-.42.975-.96 1.08a9.32 9.32 0 0 1-3.93-.27c-.54-.15-.84-.72-.72-1.26l.588-1.917 3.75-3.463c.72-.666 1.92.02 1.812.97l-.54 4.86zM3.84 12.594a1.072 1.072 0 0 1-.693-1.459 9.194 9.194 0 0 1 2.363-3.252 1.072 1.072 0 0 1 1.597.206l2.904 4.308c.564.83-.216 1.906-1.176 1.63l-4.995-1.433zm7.752-6.849V1.17c0-.54.36-1.02.9-1.08 1.38-.15 2.79 0 4.14.39.54.15.84.69.72 1.23l-1.86 4.5c-.36.87-1.62.87-1.98 0l-1.02-2.475c-.36-.87-.9-.99-.9 0v1.02z" />
+              </svg>
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4">
+              See Our Yelp Reviews
+            </h2>
+            <p className="text-muted-foreground mb-4">
+              22 Photos & 11 Reviews on Yelp
+            </p>
+            <div className="flex items-center justify-center gap-1 mb-8">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 fill-[#FF1A1A] text-[#FF1A1A]" />
+              ))}
+              <span className="ml-2 text-muted-foreground">5.0 stars</span>
+            </div>
+            <Button 
+              asChild
+              size="lg"
+              className="bg-[#FF1A1A] hover:bg-[#D32323] text-white rounded-full px-8 h-14 text-base transition-all duration-300 hover:shadow-xl hover:shadow-[#FF1A1A]/30"
+            >
+              <a href="https://www.yelp.com/biz/vanity-fur-pet-parlor-cumming" target="_blank" rel="noopener noreferrer">
+                View on Yelp
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Location Map Section */}
+      <section className="py-16 md:py-24 bg-card border-t border-border/50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+              <MapPin className="w-4 h-4" />
+              Find Us
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
+              Visit Our Location
+            </h2>
+            <p className="text-muted-foreground max-w-lg mx-auto">
+              Conveniently located in Cumming, GA. Come see us for premium pet grooming services.
+            </p>
+          </div>
+          
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-card rounded-3xl overflow-hidden shadow-xl border border-border/50">
+              {/* Map Embed */}
+              <div className="aspect-video md:aspect-[21/9] w-full">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3299.8766723456!2d-84.1402!3d34.2073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f59f0b1b3b7b7b%3A0x1234567890!2s2539+Pinetree+Rd%2C+Cumming%2C+GA+30041!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Vanity Fur Pet Parlor Location"
+                  className="w-full h-full"
+                />
+              </div>
+              
+              {/* Address & Directions */}
+              <div className="p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="text-center md:text-left">
+                  <h3 className="font-semibold text-foreground text-lg mb-1">Vanity Fur Pet Parlor</h3>
+                  <p className="text-muted-foreground">2539 Pinetree Rd, Cumming, GA 30041</p>
+                  <p className="text-muted-foreground text-sm mt-1">Mon-Sat: 9:30 AM - 6:30 PM | Sun: Closed</p>
+                </div>
+                <Button 
+                  asChild
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12 transition-all duration-300 hover:shadow-lg"
+                >
+                  <a 
+                    href="https://www.google.com/maps/dir//2539+Pinetree+Rd,+Cumming,+GA+30041" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <Navigation className="w-4 h-4 mr-2" />
+                    Get Directions
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-20 md:py-28 bg-gradient-to-b from-background to-card">
+      <section className="py-20 md:py-28 bg-gradient-to-b from-card to-background">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <Award className="w-16 h-16 text-primary mx-auto mb-6" />

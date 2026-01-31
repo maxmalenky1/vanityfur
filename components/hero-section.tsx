@@ -30,7 +30,7 @@ export function HeroSection() {
             </h1>
             
             <p className="animate-fade-up animation-delay-200 text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              Cumming, Georgia&apos;s premier pet grooming salon. At Vanity Fur Pet Parlor, we provide premium dog and cat grooming your pets will actually enjoy. Family-owned since 1985.
+              Cumming, GA&apos;s premier pet grooming salon. Compassionate, full-view, and always <strong className="text-foreground">noose-free</strong> grooming for dogs and cats. Over 30 years of grooming mastery.
             </p>
             
             <div className="animate-fade-up animation-delay-300 flex flex-wrap gap-4 mb-12">
@@ -86,7 +86,7 @@ export function HeroSection() {
               {/* Main Image */}
               <div className="relative z-10 aspect-square rounded-full overflow-hidden border-8 border-card shadow-2xl">
                 <Image
-                  src="/images/home-20page-20lady-20image.png"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Tracy__1_-removebg-preview-OxOln6cgeP5OfMiIL7n2z9Fau1tpDZ.png"
                   alt="Professional pet groomer with a happy dog"
                   fill
                   className="object-cover object-top"
@@ -101,8 +101,8 @@ export function HeroSection() {
                     <Heart className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-foreground">Made with Love</p>
-                    <p className="text-xs text-muted-foreground">Since 1985</p>
+                    <p className="text-sm font-medium text-foreground">Noose-Free</p>
+                    <p className="text-xs text-muted-foreground">Safe & Gentle</p>
                   </div>
                 </div>
               </div>
@@ -113,8 +113,8 @@ export function HeroSection() {
                     <Sparkles className="w-5 h-5 text-amber-600" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-foreground">VIP Treatment</p>
-                    <p className="text-xs text-muted-foreground">Every pet matters</p>
+                    <p className="text-sm font-medium text-foreground">Full-View Grooming</p>
+                    <p className="text-xs text-muted-foreground">Open & Transparent</p>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Mail, MapPin, PawPrint, Heart } from "lucide-react"
+import { Mail, MapPin, PawPrint, Heart, Facebook, Instagram, Youtube } from "lucide-react"
 
 export function Footer() {
   return (
@@ -24,14 +24,14 @@ export function Footer() {
               <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                 <PawPrint className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="text-xl font-serif font-semibold text-background">
+              <span className="text-2xl font-logo text-background" style={{ fontFamily: 'var(--font-logo)' }}>
                 Vanity Fur
               </span>
             </Link>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
               Premium pet grooming with genuine care and compassion. Family-owned and operated since 1985.
             </p>
-            <div className="space-y-3">
+            <div className="space-y-3 mb-6">
               <a href="mailto:tracey@vanityfur.us" className="flex items-center gap-3 text-sm text-background/70 hover:text-primary transition-colors">
                 <Mail className="w-4 h-4" />
                 tracey@vanityfur.us
@@ -40,6 +40,58 @@ export function Footer() {
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
                 <span>2539 Pinetree Rd,<br />Cumming, GA 30041</span>
               </div>
+            </div>
+            {/* Social Links */}
+            <div className="flex items-center gap-3">
+              <a 
+                href="https://www.facebook.com/tracey.moffittcuthbertson" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 bg-background/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a 
+                href="https://www.instagram.com/vanityfur.us/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 bg-background/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a 
+                href="https://x.com/vanityfur" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 bg-background/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                aria-label="X (Twitter)"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              <a 
+                href="https://www.yelp.com/biz/vanity-fur-pet-parlor-cumming" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 bg-background/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                aria-label="Yelp"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.905-4.308a1.072 1.072 0 0 1 1.596-.206 9.194 9.194 0 0 1 2.364 3.252 1.073 1.073 0 0 1-.694 1.459zm-3.595 5.867l-3.75-3.463c-.72-.666-1.92.02-1.812.97l.54 4.86c.06.54.42.975.96 1.08a9.292 9.292 0 0 0 3.93-.27c.54-.15.84-.72.72-1.26l-.588-1.917zm-6.552-.396l-.54 4.86c-.06.54-.42.975-.96 1.08a9.32 9.32 0 0 1-3.93-.27c-.54-.15-.84-.72-.72-1.26l.588-1.917 3.75-3.463c.72-.666 1.92.02 1.812.97zM6.24 11.43l-4.995-1.433a1.072 1.072 0 0 1-.693-1.459 9.194 9.194 0 0 1 2.363-3.252 1.072 1.072 0 0 1 1.597.206l2.904 4.308c.564.83-.216 1.906-1.176 1.63zm5.352-5.685V.99c0-.54.36-1.02.9-1.08 1.38-.15 2.79 0 4.14.39.54.15.84.69.72 1.23l-1.86 4.5c-.36.87-1.62.87-1.98 0l-1.02-2.475c-.36-.87-.72-.87-.9.19z" />
+                </svg>
+              </a>
+              <a 
+                href="https://www.youtube.com/@VanityFurPetParlor" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 bg-background/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                aria-label="YouTube"
+              >
+                <Youtube className="w-4 h-4" />
+              </a>
             </div>
           </div>
 

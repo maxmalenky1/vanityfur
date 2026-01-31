@@ -81,10 +81,46 @@ export default function ContactPage() {
     preferredTime: "",
     message: ""
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log(formData)
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus({ type: 'success', message: data.message || 'Message sent successfully!' })
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          petName: "",
+          petType: "",
+          service: "",
+          preferredDate: "",
+          preferredTime: "",
+          message: ""
+        })
+      } else {
+        setSubmitStatus({ type: 'error', message: data.error || 'Something went wrong. Please try again.' })
+      }
+    } catch (error) {
+      setSubmitStatus({ type: 'error', message: 'Failed to send message. Please call us instead.' })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -267,12 +303,23 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {submitStatus && (
+                  <div className={`p-4 rounded-xl text-center ${
+                    submitStatus.type === 'success' 
+                      ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400' 
+                      : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400'
+                  }`}>
+                    {submitStatus.message}
+                  </div>
+                )}
+
                 <Button 
                   type="submit" 
                   size="lg"
-                  className="w-full bg-foreground text-background hover:bg-foreground/90 rounded-full h-14 text-base transition-all duration-300 hover:shadow-lg"
+                  disabled={isSubmitting}
+                  className="w-full bg-foreground text-background hover:bg-foreground/90 rounded-full h-14 text-base transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </div>

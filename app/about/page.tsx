@@ -1,47 +1,48 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { Heart, CheckCircle, Star, Shield, ArrowRight } from "lucide-react"
+import { Heart, CheckCircle, Star, Shield, ArrowRight, Phone, Eye, Sparkles } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
-  title: "About Us | Vanity Fur Pet Parlor - Family-Owned Pet Grooming in Cumming, GA",
-  description: "Meet the team at Vanity Fur Pet Parlor in Cumming, GA. Family-owned since 1985, our expert groomers Tracey and Sarah provide premium dog and cat grooming with genuine care.",
+  title: "About Us | Vanity Fur Pet Parlor - No-Noose Dog Grooming & Cat Grooming in Cumming, GA",
+  description: "Meet the team at Vanity Fur Pet Parlor in Cumming, GA. Family-owned since 1985, offering no-noose dog grooming and no-sedation cat grooming. Over 30 years of grooming mastery.",
+  keywords: ["no-noose dog grooming Cumming GA", "cat grooming Cumming GA", "pet grooming Cumming Georgia", "no sedation cat grooming"],
   openGraph: {
-    title: "About Vanity Fur Pet Parlor - Cumming, GA Pet Grooming",
-    description: "Family-owned since 1985. Meet our expert pet grooming team in Cumming, Georgia.",
+    title: "About Vanity Fur Pet Parlor - No-Noose Pet Grooming in Cumming, GA",
+    description: "Family-owned since 1985. Compassionate, full-view, noose-free dog grooming and no-sedation cat grooming in Cumming, Georgia.",
   },
 }
 
-const values = [
+const coreValues = [
   {
-    icon: Heart,
-    title: "Family-Owned Excellence",
-    description: "What started as a dream in 1985 has grown into a legacy of exceptional pet care. We're not just a business—we're a family dedicated to treating your pets like our own."
+    icon: Shield,
+    title: "Always Noose-Free",
+    description: "Your pet's safety is paramount. Our grooming is always noose-free, ensuring a comfortable and stress-free experience for every dog."
   },
   {
-    icon: CheckCircle,
-    title: "Expert Craftsmanship",
-    description: "Our team brings decades of combined experience, specialized training, and an artistic eye to every grooming session. We don't just groom—we create masterpieces."
+    icon: Eye,
+    title: "Full-View Grooming",
+    description: "Complete transparency with front and back grooming areas visible and open cages. See exactly how your pet is being cared for."
+  },
+  {
+    icon: Heart,
+    title: "Compassionate Care",
+    description: "We are animal lovers and artists with over 30 years of grooming mastery. Every pet receives calm, species-respectful care."
   },
   {
     icon: Star,
-    title: "Personalized Care",
-    description: "Every pet is unique, and so is our approach. We take the time to understand your pet's personality, needs, and preferences to create a truly customized experience."
-  },
-  {
-    icon: Shield,
-    title: "Calm & Comfortable",
-    description: "We've created a serene, stress-free environment where pets feel safe and relaxed. No rushing, no chaos—just patient, gentle care that puts your pet at ease."
+    title: "Unmatched Quality",
+    description: "From show-quality extravagant grooming to simple baths and nail services, our breed-standard cuts and custom preferences are unmatched."
   }
 ]
 
 const team = [
   {
     name: "Tracey",
-    role: "Owner & Operator",
+    role: "Owner & Master Groomer",
     initials: "T",
     image: "/images/tracy.png",
     bio: "I grew up in Powder Springs on a small farm and have been passionate about my love for animals all of my life! I always dreamed of becoming a Vet and began working at an animal hospital at 18 and later as a Vet Tech. I discovered that to be a Vet was much too sad of a profession, surrounded by tragedy and death every day. I decided to follow my other passion, technical drawing and art as an Architect. But I did not find what I wanted at Southern Tech. I finally found my perfect fit when I met my mentor, Donna Haas, of Puppy Toes Grooming. I left college and began my apprenticeship with her in 1985. I have never looked back! This is truly my calling and I am so blessed to have a profession that I truly still enjoy and love, even after almost 35 years!"
@@ -74,22 +75,34 @@ export default function AboutPage() {
         
         <div className="container relative mx-auto px-6 text-center">
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full mb-6">
-            About Vanity Fur
+            About Vanity Fur Pet Parlor
           </span>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6 max-w-4xl mx-auto leading-tight">
-            Our Story & Passion
+            Premium Pet Grooming in Cumming, GA
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            For nearly 35 years, we&apos;ve been dedicated to providing premium pet grooming with genuine care and compassion. Every pet that walks through our doors becomes part of our family.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Vanity Fur offers an upscale personal experience for you and your dog or cat. Our grooming is compassionate, full view, and always <strong className="text-foreground">noose-free</strong>. We are animal lovers and artists, with over 30 years of grooming mastery, providing breed-standard cuts and creative custom preferences.
           </p>
         </div>
       </section>
 
-      {/* Values Section */}
+      {/* Core Values */}
       <section className="py-20 md:py-28 bg-card">
         <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full mb-6">
+              What Sets Us Apart
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4">
+              Our Core Principles
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We are proficient in everything from show-quality extravagant grooming to simple baths and nail services. The quality of our work is unmatched and our prices are competitive.
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-            {values.map((value, index) => (
+            {coreValues.map((value, index) => (
               <div 
                 key={index} 
                 className="bg-background rounded-3xl p-8 border border-border/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group"
@@ -105,8 +118,98 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Cat Grooming Section */}
+      <section className="py-20 md:py-28 bg-background" id="cat-grooming">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full mb-6">
+                Specialized Cat Grooming in Cumming, GA
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
+                A Unique Cat Grooming Experience
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                I <strong className="text-foreground">LOVE</strong> cats! I have been grooming cats since 1985. Through decades of hands-on experience, I have developed specialized techniques through real-world practice that allow me to offer a unique and compassionate grooming experience unavailable anywhere else.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                This experience takes place in the <strong className="text-foreground">&quot;Cat Room&quot;</strong> at Vanity Fur Pet Parlor — a quiet space infused with cat pheromones and calming visuals. Cat owners remain present during grooming to help comfort their cat as we work together to decide what is best.
+              </p>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+                    <CheckCircle className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground">No Sedation Required</h4>
+                    <p className="text-muted-foreground text-sm">Gentle techniques mean your cat stays calm naturally</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+                    <Heart className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground">Owner Stays Present</h4>
+                    <p className="text-muted-foreground text-sm">You remain with your cat to provide comfort and support</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+                    <Sparkles className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground">30-45 Minutes</h4>
+                    <p className="text-muted-foreground text-sm">Quick, efficient grooming with minimal stress. Cats leave beautifully groomed and return home immediately.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-card rounded-2xl p-6 border border-border/50">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground">Book Cat Grooming by Phone</h4>
+                    <p className="text-muted-foreground text-sm">Personalized consultation ensures the best experience</p>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  We require phone booking for cat grooming appointments. This allows us to learn about your cat&apos;s unique needs, temperament, and schedule the perfect time slot for a calm, successful grooming session.
+                </p>
+                <Button 
+                  asChild
+                  className="bg-foreground text-background hover:bg-foreground/90 rounded-full"
+                >
+                  <a href="tel:7708878880">
+                    Call (770) 887-8880
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-muted">
+                <Image
+                  src="/images/tracey-white-cat.jpg"
+                  alt="Tracey with white fluffy Ragdoll cat - Cat grooming expert at Vanity Fur Pet Parlor Cumming GA"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 -left-6 bg-card rounded-2xl shadow-xl p-4 border border-border/50">
+                <p className="text-sm font-medium text-foreground">Cat Grooming Since</p>
+                <p className="text-3xl font-serif font-semibold text-primary">1985</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Team Section */}
-      <section className="py-20 md:py-28 bg-background" id="team">
+      <section className="py-20 md:py-28 bg-card" id="team">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full mb-6">
@@ -124,7 +227,7 @@ export default function AboutPage() {
             {team.map((member, index) => (
               <div 
                 key={index} 
-                className="group bg-card rounded-3xl overflow-hidden border border-border/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
+                className="group bg-background rounded-3xl overflow-hidden border border-border/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
               >
                 <div className="relative h-72 md:h-80 overflow-hidden">
                   <Image
@@ -160,7 +263,7 @@ export default function AboutPage() {
             Ready to Experience the Vanity Fur Difference?
           </h2>
           <p className="text-background/70 mb-10 max-w-xl mx-auto text-lg">
-            Book an appointment today and let us pamper your beloved pet
+            Book an appointment today and let us pamper your beloved pet with compassionate, noose-free grooming.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Button 
