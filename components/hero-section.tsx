@@ -2,10 +2,13 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Star, Heart, Sparkles } from "lucide-react"
+import { ArrowRight, Star, Heart, Sparkles, Play, Eye } from "lucide-react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
+  const [videoModal, setVideoModal] = useState<string | null>(null)
+
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background Elements */}
@@ -25,12 +28,12 @@ export function HeroSection() {
             </div>
             
             <h1 className="animate-fade-up animation-delay-100 font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-foreground leading-[1.1] tracking-tight mb-6">
-              Where paws are
-              <span className="block text-primary">pampered with love.</span>
+              Full-View, Noose-Free
+              <span className="block text-primary">Dog & Cat Grooming</span>
             </h1>
             
             <p className="animate-fade-up animation-delay-200 text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              Cumming, GA&apos;s premier pet grooming salon. Compassionate, full-view, and always <strong className="text-foreground">noose-free</strong> grooming for dogs and cats. Over 30 years of grooming mastery.
+              Cumming, GA&apos;s premier pet grooming salon. Compassionate, full-view, and always <strong className="text-foreground">noose-free</strong> grooming for dogs and cats. Over 35 years of grooming mastery.
             </p>
             
             <div className="animate-fade-up animation-delay-300 flex flex-wrap gap-4 mb-12">
@@ -86,7 +89,7 @@ export function HeroSection() {
               {/* Main Image */}
               <div className="relative z-10 aspect-square rounded-full overflow-hidden border-8 border-card shadow-2xl">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Tracy__1_-removebg-preview-OxOln6cgeP5OfMiIL7n2z9Fau1tpDZ.png"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rs%3Dw_600%2Ch_800%2Ccg_true-7aFRtzCWuve4yFJbsjpqtcpKfZRExJ.webp"
                   alt="Professional pet groomer with a happy dog"
                   fill
                   className="object-cover object-top"
@@ -94,34 +97,87 @@ export function HeroSection() {
                 />
               </div>
               
-              {/* Floating Cards */}
-              <div className="absolute -top-4 -right-4 bg-card rounded-2xl shadow-xl p-4 animate-float z-20">
+              {/* Floating Video Buttons */}
+              <button
+                type="button"
+                onClick={() => setVideoModal("noose-free")}
+                className="absolute -top-4 -right-4 bg-card rounded-2xl shadow-xl p-4 animate-float z-20 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 group border border-border/50"
+              >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                    <Heart className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Play className="w-5 h-5 text-primary fill-primary" />
                   </div>
-                  <div>
-                    <p className="text-sm font-medium text-foreground">Noose-Free</p>
-                    <p className="text-xs text-muted-foreground">Safe & Gentle</p>
+                  <div className="text-left">
+                    <p className="text-sm font-medium text-foreground flex items-center gap-1.5">
+                      <Heart className="w-3.5 h-3.5 text-primary" />
+                      Noose-Free
+                    </p>
+                    <p className="text-xs text-muted-foreground">Watch Video</p>
                   </div>
                 </div>
-              </div>
+              </button>
               
-              <div className="absolute -bottom-4 -left-4 bg-card rounded-2xl shadow-xl p-4 animate-float animation-delay-300 z-20">
+              <button
+                type="button"
+                onClick={() => setVideoModal("full-view")}
+                className="absolute -bottom-4 -left-4 bg-card rounded-2xl shadow-xl p-4 animate-float animation-delay-300 z-20 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 group border border-border/50"
+              >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center">
-                    <Sparkles className="w-5 h-5 text-amber-600" />
+                  <div className="w-10 h-10 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-900/50 transition-colors">
+                    <Play className="w-5 h-5 text-amber-600 fill-amber-600" />
                   </div>
-                  <div>
-                    <p className="text-sm font-medium text-foreground">Full-View Grooming</p>
-                    <p className="text-xs text-muted-foreground">Open & Transparent</p>
+                  <div className="text-left">
+                    <p className="text-sm font-medium text-foreground flex items-center gap-1.5">
+                      <Eye className="w-3.5 h-3.5 text-amber-600" />
+                      Full-View Grooming
+                    </p>
+                    <p className="text-xs text-muted-foreground">Watch Video</p>
                   </div>
                 </div>
-              </div>
+              </button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Video Modal */}
+      {videoModal && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          onClick={() => setVideoModal(null)}
+          onKeyDown={(e) => e.key === "Escape" && setVideoModal(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={videoModal === "noose-free" ? "Noose-Free Grooming Video" : "Full-View Grooming Video"}
+        >
+          <div 
+            className="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setVideoModal(null)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/60 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-colors"
+              aria-label="Close video"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <iframe
+              src={
+                videoModal === "noose-free"
+                  ? "https://www.youtube.com/embed/p1yflMD-UY4?autoplay=1"
+                  : "https://www.youtube.com/embed/xSXCRFb951I?start=47&autoplay=1"
+              }
+              title={videoModal === "noose-free" ? "Noose-Free Grooming at Vanity Fur" : "Full-View Grooming at Vanity Fur"}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+        </div>
+      )}
     </section>
   )
 }

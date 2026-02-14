@@ -102,8 +102,9 @@ export function Footer() {
               {[
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About Us" },
-                { href: "/#services", label: "Services" },
-                { href: "/about#team", label: "Our Groomers" },
+                { href: "/gallery", label: "Gallery" },
+                { href: "/reviews", label: "Reviews" },
+                { href: "/blog", label: "Blog" },
                 { href: "/contact", label: "Book an Appointment" },
               ].map((link) => (
                 <li key={link.href}>

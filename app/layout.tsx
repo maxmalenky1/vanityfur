@@ -21,9 +21,12 @@ const _inter = Inter({ subsets: ["latin"], variable: '--font-sans' });
 const _greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"], variable: '--font-logo' });
 
 export const metadata: Metadata = {
-  title: 'Vanity Fur Pet Parlor | Best Pet Grooming in Cumming, GA | Dog & Cat Grooming',
-  description: 'Vanity Fur Pet Parlor - Cumming\'s premier pet grooming salon. Professional dog grooming & cat grooming services in Cumming, GA. Family-owned since 1985. Book your appointment today!',
-  keywords: ['pet grooming Cumming GA', 'dog grooming Cumming', 'cat grooming Cumming', 'pet parlor Cumming Georgia', 'best pet groomer Cumming', 'Vanity Fur', 'dog grooming near me', 'cat grooming near me', 'pet spa Cumming', 'professional pet grooming'],
+  title: {
+    default: 'Vanity Fur Pet Parlor | Noose-Free Grooming in Cumming, GA',
+    template: '%s | Vanity Fur Pet Parlor',
+  },
+  description: 'Full-view, noose-free dog & cat grooming in Cumming, GA. Family-owned since 1985. Call (770) 887-8880 to book.',
+  keywords: ['pet grooming Cumming GA', 'dog grooming Cumming', 'cat grooming Cumming', 'noose-free dog grooming', 'full-view grooming', 'no-sedation cat grooming', 'Vanity Fur', 'pet grooming near me', 'pet spa Cumming', 'professional pet grooming'],
   authors: [{ name: 'Vanity Fur Pet Parlor' }],
   creator: 'Vanity Fur Pet Parlor',
   publisher: 'Vanity Fur Pet Parlor',
@@ -37,8 +40,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Vanity Fur Pet Parlor | Best Pet Grooming in Cumming, GA',
-    description: 'Premium dog & cat grooming services in Cumming, Georgia. Family-owned since 1985. Where paws are pampered with love!',
+    title: 'Vanity Fur Pet Parlor | Noose-Free Grooming in Cumming, GA',
+    description: 'Full-view, noose-free dog & cat grooming in Cumming, GA. Family-owned since 1985.',
     url: 'https://vanityfur.us',
     siteName: 'Vanity Fur Pet Parlor',
     locale: 'en_US',
@@ -46,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vanity Fur Pet Parlor | Best Pet Grooming in Cumming, GA',
-    description: 'Premium dog & cat grooming services in Cumming, Georgia. Family-owned since 1985.',
+    title: 'Vanity Fur Pet Parlor | Noose-Free Grooming in Cumming, GA',
+    description: 'Full-view, noose-free dog & cat grooming in Cumming, GA. Family-owned since 1985.',
   },
   robots: {
     index: true,
@@ -80,7 +83,7 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'PetStore',
+  '@type': 'LocalBusiness',
   name: 'Vanity Fur Pet Parlor',
   image: 'https://vanityfur.us/images/home-20page-20lady-20image.png',
   '@id': 'https://vanityfur.us',
@@ -117,8 +120,8 @@ const jsonLd = {
     'https://www.youtube.com/@VanityFurPetParlor'
   ],
   priceRange: '$$',
-  servesCuisine: 'Pet Grooming',
-  description: 'Premium dog and cat grooming services in Cumming, GA. Family-owned since 1985.',
+  additionalType: 'http://www.productontology.org/id/Pet_grooming',
+  description: 'Full-view, noose-free dog grooming and no-sedation cat grooming in Cumming, GA. Family-owned since 1985 with over 35 years of grooming mastery.',
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
