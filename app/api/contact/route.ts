@@ -70,6 +70,7 @@ export async function POST(request: Request) {
       phone,
       petName,
       petType,
+      breed,
       service,
       preferredDate,
       preferredTime,
@@ -83,12 +84,19 @@ export async function POST(request: Request) {
       )
     }
 
+    // Format pet info with breed
+    const petInfo = petName 
+      ? `${petName}${petType ? ` (${petType}${breed ? ` - ${breed}` : ""})` : breed ? ` - ${breed}` : ""}`
+      : petType 
+        ? `${petType}${breed ? ` - ${breed}` : ""}`
+        : breed || null
+
     // Pushover notification message (supports HTML)
     const pushoverMessage = [
       `<b>Name:</b> ${name}`,
       `<b>Phone:</b> ${phone}`,
       `<b>Email:</b> ${email}`,
-      petName ? `<b>Pet:</b> ${petName}${petType ? ` (${petType})` : ""}` : null,
+      petInfo ? `<b>Pet:</b> ${petInfo}` : null,
       service ? `<b>Service:</b> ${service}` : null,
       preferredDate ? `<b>Date:</b> ${preferredDate}` : null,
       preferredTime ? `<b>Time:</b> ${preferredTime}` : null,
@@ -107,6 +115,7 @@ Phone: ${phone}
 Email: ${email}
 ${petName ? `Pet Name: ${petName}` : ""}
 ${petType ? `Pet Type: ${petType}` : ""}
+${breed ? `Breed: ${breed}` : ""}
 ${service ? `Service Requested: ${service}` : ""}
 ${preferredDate ? `Preferred Date: ${preferredDate}` : ""}
 ${preferredTime ? `Preferred Time: ${preferredTime}` : ""}

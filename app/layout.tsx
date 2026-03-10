@@ -22,11 +22,11 @@ const _greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"], variable: '
 
 export const metadata: Metadata = {
   title: {
-    default: 'Vanity Fur Pet Parlor | Noose-Free Grooming in Cumming, GA',
+    default: 'Vanity Fur Pet Parlor | Dog & Cat Grooming Cumming GA',
     template: '%s | Vanity Fur Pet Parlor',
   },
-  description: 'Full-view, noose-free dog & cat grooming in Cumming, GA. Family-owned since 1985. Call (770) 887-8880 to book.',
-  keywords: ['pet grooming Cumming GA', 'dog grooming Cumming', 'cat grooming Cumming', 'noose-free dog grooming', 'full-view grooming', 'no-sedation cat grooming', 'Vanity Fur', 'pet grooming near me', 'pet spa Cumming', 'professional pet grooming'],
+  description: 'Dog & cat grooming — professional pet grooming in Cumming, GA. Family-owned 35+ years offering full-view, noose-free dog grooming and no-sedation cat grooming in Forsyth County.',
+  keywords: ['dog grooming Cumming GA', 'cat grooming Cumming GA', 'pet grooming Forsyth County', 'pet grooming Cumming GA', 'noose-free dog grooming', 'no-sedation cat grooming', 'full-view grooming', 'pet grooming near me Cumming', 'Vanity Fur Pet Parlor', 'professional pet groomer Georgia'],
   authors: [{ name: 'Vanity Fur Pet Parlor' }],
   creator: 'Vanity Fur Pet Parlor',
   publisher: 'Vanity Fur Pet Parlor',
@@ -40,17 +40,26 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Vanity Fur Pet Parlor | Noose-Free Grooming in Cumming, GA',
-    description: 'Full-view, noose-free dog & cat grooming in Cumming, GA. Family-owned since 1985.',
+    title: 'Vanity Fur Pet Parlor | Noose-Free Dog & Cat Grooming Cumming GA',
+    description: 'Premier pet grooming in Cumming, GA. Noose-free dog grooming and no-sedation cat grooming. Full-view grooming since 1985.',
     url: 'https://vanityfur.us',
     siteName: 'Vanity Fur Pet Parlor',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: 'https://vanityfur.us/images/home-20page-20lady-20image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Vanity Fur Pet Parlor - Professional Pet Grooming in Cumming GA',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vanity Fur Pet Parlor | Noose-Free Grooming in Cumming, GA',
-    description: 'Full-view, noose-free dog & cat grooming in Cumming, GA. Family-owned since 1985.',
+    title: 'Vanity Fur Pet Parlor | Noose-Free Pet Grooming Cumming GA',
+    description: 'Noose-free dog grooming and no-sedation cat grooming in Cumming, GA. Family-owned since 1985.',
+    images: ['https://vanityfur.us/images/home-20page-20lady-20image.png'],
   },
   robots: {
     index: true,
@@ -81,54 +90,6 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
 }
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Vanity Fur Pet Parlor',
-  image: 'https://vanityfur.us/images/home-20page-20lady-20image.png',
-  '@id': 'https://vanityfur.us',
-  url: 'https://vanityfur.us',
-  telephone: '(770) 887-8880',
-  email: 'tracey@vanityfur.us',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '2539 Pinetree Rd',
-    addressLocality: 'Cumming',
-    addressRegion: 'GA',
-    postalCode: '30041',
-    addressCountry: 'US'
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 34.2073,
-    longitude: -84.1402
-  },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      opens: '09:30',
-      closes: '18:30'
-    }
-  ],
-  sameAs: [
-    'https://share.google/8LdmM0BiM7AMGIcL3',
-    'https://www.facebook.com/tracey.moffittcuthbertson',
-    'https://www.instagram.com/vanityfur.us/',
-    'https://x.com/vanityfur',
-    'https://www.yelp.com/biz/vanity-fur-pet-parlor-cumming',
-    'https://www.youtube.com/@VanityFurPetParlor'
-  ],
-  priceRange: '$$',
-  additionalType: 'http://www.productontology.org/id/Pet_grooming',
-  description: 'Full-view, noose-free dog grooming and no-sedation cat grooming in Cumming, GA. Family-owned since 1985 with over 35 years of grooming mastery.',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '100'
-  }
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -136,28 +97,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${_playfair.variable} ${_inter.variable} ${_greatVibes.variable}`} suppressHydrationWarning>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                const stored = localStorage.getItem('vanity-fur-theme');
-                const theme = stored || 'dark';
-                document.documentElement.classList.add(theme);
-              })();
-            `,
-          }}
-        />
-      </head>
       <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
           storageKey="vanity-fur-theme"
         >
           {children}

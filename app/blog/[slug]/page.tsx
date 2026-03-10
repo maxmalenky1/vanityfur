@@ -1,12 +1,13 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, Clock, Tag, ArrowRight } from "lucide-react"
+import { ArrowLeft, Clock, ArrowRight, Tag } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
+import { list } from "@vercel/blob"
 
-const blogPosts: Record<string, {
+const staticPosts: Record<string, {
   title: string
   excerpt: string
   image: string
@@ -112,29 +113,103 @@ const blogPosts: Record<string, {
   },
 }
 
+async function getCmsPost(slug: string) {
+  try {
+    const { blobs } = await list({ prefix: "blog/posts/" })
+    for (const blob of blobs) {
+      if (!blob.pathname.endsWith(".json")) continue
+      try {
+        const response = await fetch(blob.url, { next: { revalidate: 60 } })
+        const data = await response.json()
+        if (data.slug === slug) {
+          return data
+        }
+      } catch {
+        continue
+      }
+    }
+    return null
+  } catch {
+    return null
+  }
+}
+
 type Props = {
   params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = blogPosts[slug]
-  if (!post) {
-    return { title: "Post Not Found" }
+  const canonicalUrl = `https://vanityfur.us/blog/${slug}`
+
+  // Check static first, then CMS
+  const staticPost = staticPosts[slug]
+  if (staticPost) {
+    return {
+      title: `${staticPost.title} | Vanity Fur Pet Parlor Blog`,
+      description: staticPost.excerpt,
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      openGraph: {
+        title: `${staticPost.title} | Vanity Fur Pet Parlor`,
+        description: staticPost.excerpt,
+        url: canonicalUrl,
+        type: 'article',
+        images: staticPost.image ? [{ url: `https://vanityfur.us${staticPost.image}` }] : undefined,
+      },
+    }
   }
-  return {
-    title: post.title,
-    description: post.excerpt,
-    openGraph: {
-      title: `${post.title} | Vanity Fur Pet Parlor`,
-      description: post.excerpt,
-    },
+
+  const cmsPost = await getCmsPost(slug)
+  if (cmsPost) {
+    return {
+      title: `${cmsPost.title} | Vanity Fur Pet Parlor Blog`,
+      description: cmsPost.excerpt,
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      openGraph: {
+        title: `${cmsPost.title} | Vanity Fur Pet Parlor`,
+        description: cmsPost.excerpt,
+        url: canonicalUrl,
+        type: 'article',
+        images: cmsPost.image ? [{ url: cmsPost.image.startsWith('http') ? cmsPost.image : `https://vanityfur.us${cmsPost.image}` }] : undefined,
+      },
+    }
+  }
+
+  return { 
+    title: "Post Not Found",
+    robots: { index: false, follow: false }
   }
 }
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
-  const post = blogPosts[slug]
+
+  // Check static posts first
+  const staticPost = staticPosts[slug]
+  let post = staticPost
+    ? {
+        slug,
+        title: staticPost.title,
+        excerpt: staticPost.excerpt,
+        image: staticPost.image,
+        tag: staticPost.tag,
+        date: staticPost.date,
+        readTime: staticPost.readTime,
+        content: staticPost.content,
+      }
+    : null
+
+  // If not found in static, check CMS
+  if (!post) {
+    const cmsPost = await getCmsPost(slug)
+    if (cmsPost) {
+      post = cmsPost
+    }
+  }
 
   if (!post) {
     return (
@@ -153,11 +228,6 @@ export default async function BlogPostPage({ params }: Props) {
       </div>
     )
   }
-
-  const allSlugs = Object.keys(blogPosts)
-  const currentIndex = allSlugs.indexOf(slug)
-  const nextSlug = allSlugs[currentIndex + 1]
-  const nextPost = nextSlug ? { slug: nextSlug, ...blogPosts[nextSlug] } : null
 
   return (
     <div className="min-h-screen bg-background">
@@ -192,45 +262,58 @@ export default async function BlogPostPage({ params }: Props) {
         </section>
 
         {/* Featured Image */}
-        <section className="pb-8">
-          <div className="container mx-auto px-6">
-            <div className="max-w-3xl mx-auto">
-              <div className="aspect-[16/9] relative rounded-2xl overflow-hidden">
-                <Image
-                  src={post.image || "/placeholder.svg"}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
+        {post.image && (
+          <section className="pb-8">
+            <div className="container mx-auto px-6">
+              <div className="max-w-3xl mx-auto">
+                <div className="aspect-[16/9] relative rounded-2xl overflow-hidden bg-muted">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Content */}
-        <section className="py-8 md:py-12 pb-20">
+        <section className="py-12 md:py-16 pb-24">
           <div className="container mx-auto px-6">
-            <div className="max-w-3xl mx-auto">
-              <article className="prose prose-lg dark:prose-invert max-w-none">
-                {post.content.map((paragraph, index) => (
-                  <p key={index} className="text-foreground/90 leading-relaxed mb-6 text-base md:text-lg">
+            <div className="max-w-2xl mx-auto">
+              <article className="space-y-6">
+                {post.content.map((paragraph: string, index: number) => (
+                  <p 
+                    key={index} 
+                    className="text-foreground/85 leading-[1.8] text-[17px] md:text-lg font-normal"
+                  >
                     {paragraph}
                   </p>
                 ))}
               </article>
 
+              {/* Divider */}
+              <div className="my-12 flex items-center gap-4">
+                <div className="flex-1 h-px bg-border" />
+                <span className="text-muted-foreground text-sm">Vanity Fur Pet Parlor</span>
+                <div className="flex-1 h-px bg-border" />
+              </div>
+
               {/* CTA */}
-              <div className="mt-12 p-8 bg-card rounded-2xl border border-border/50 text-center">
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
+              <div className="p-8 md:p-10 bg-gradient-to-br from-primary/5 to-primary/10 rounded-3xl text-center">
+                <h3 className="font-serif text-2xl font-semibold text-foreground mb-3">
                   Ready to Experience the Vanity Fur Difference?
                 </h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground mb-8 max-w-md mx-auto">
                   Book a grooming appointment and see our full-view, noose-free approach in person.
                 </p>
                 <Button
                   asChild
-                  className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-6"
+                  size="lg"
+                  className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-8 h-12"
                 >
                   <Link href="/contact">
                     Book An Appointment
@@ -238,22 +321,6 @@ export default async function BlogPostPage({ params }: Props) {
                   </Link>
                 </Button>
               </div>
-
-              {/* Next Post */}
-              {nextPost && (
-                <div className="mt-12 pt-8 border-t border-border/50">
-                  <p className="text-sm text-muted-foreground mb-3">Next Article</p>
-                  <Link
-                    href={`/blog/${nextPost.slug}`}
-                    className="group flex items-center justify-between gap-4"
-                  >
-                    <h4 className="font-serif text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {nextPost.title}
-                    </h4>
-                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
-                  </Link>
-                </div>
-              )}
             </div>
           </div>
         </section>

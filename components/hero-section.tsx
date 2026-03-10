@@ -1,13 +1,9 @@
-"use client"
-
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Star, Heart, Sparkles, Play, Eye } from "lucide-react"
-import { useState } from "react"
+import { ArrowRight, Star, Sparkles, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
-  const [videoModal, setVideoModal] = useState<string | null>(null)
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
@@ -80,104 +76,76 @@ export function HeroSection() {
             </div>
           </div>
           
-          {/* Image */}
+          {/* Images - Two Circles */}
           <div className="relative animate-fade-up animation-delay-200">
-            <div className="relative aspect-square max-w-lg mx-auto">
-              {/* Decorative ring */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10 rounded-full animate-pulse-soft" />
-              
-              {/* Main Image */}
-              <div className="relative z-10 aspect-square rounded-full overflow-hidden border-8 border-card shadow-2xl">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rs%3Dw_600%2Ch_800%2Ccg_true-7aFRtzCWuve4yFJbsjpqtcpKfZRExJ.webp"
-                  alt="Professional pet groomer with a happy dog"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
+            <div className="relative w-full aspect-square max-w-[500px] mx-auto">
+              {/* Large Circle - Main Image */}
+              <div className="absolute top-0 right-0 z-10 w-[65%] aspect-square">
+                {/* Decorative ring for large circle */}
+                <div className="absolute inset-[-8px] rounded-full border-2 border-primary/20" />
+                <div className="absolute inset-[-16px] rounded-full border border-primary/10" />
+                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-card shadow-2xl">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rs%3Dw_600%2Ch_800%2Ccg_true-7aFRtzCWuve4yFJbsjpqtcpKfZRExJ.webp"
+                    alt="Professional noose-free dog grooming at Vanity Fur Pet Parlor in Cumming GA - happy dog being groomed"
+                    fill
+                    className="object-cover object-[center_20%]"
+                    priority
+                    sizes="(max-width: 768px) 60vw, 320px"
+                  />
+                </div>
+                {/* Full-View Gallery Link - glass pill on large circle */}
+                <Link
+                  href="/gallery?tab=videos&pet=dogs"
+                  className="absolute -left-2 md:left-auto md:-right-2 top-[12%] bg-card/90 backdrop-blur-md shadow-xl rounded-full px-3 py-2 animate-float z-30 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 group border border-amber-500/30"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center shadow-lg shadow-amber-500/30">
+                      <Play className="w-4 h-4 text-white fill-white ml-0.5" />
+                    </div>
+                    <div className="pr-1">
+                      <p className="text-[10px] md:text-xs font-semibold text-foreground leading-tight">Full-View</p>
+                      <p className="text-[9px] text-muted-foreground">Videos</p>
+                    </div>
+                  </div>
+                </Link>
               </div>
-              
-              {/* Floating Video Buttons */}
-              <button
-                type="button"
-                onClick={() => setVideoModal("noose-free")}
-                className="absolute -top-4 -right-4 bg-card rounded-2xl shadow-xl p-4 animate-float z-20 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 group border border-border/50"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Play className="w-5 h-5 text-primary fill-primary" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-sm font-medium text-foreground flex items-center gap-1.5">
-                      <Heart className="w-3.5 h-3.5 text-primary" />
-                      Noose-Free
-                    </p>
-                    <p className="text-xs text-muted-foreground">Watch Video</p>
-                  </div>
+
+              {/* Small Circle - Second Face */}
+              <div className="absolute bottom-[8%] left-0 z-20 w-[48%] aspect-square">
+                {/* Decorative ring for small circle */}
+                <div className="absolute inset-[-6px] rounded-full border-2 border-primary/20" />
+                <div className="absolute inset-[-12px] rounded-full border border-primary/10" />
+                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-card shadow-2xl">
+                  <Image
+                    src="/images/features/personal-grooming.webp"
+                    alt="Full-view pet grooming in Forsyth County - beautifully groomed dog at Vanity Fur"
+                    fill
+                    className="object-cover object-[center_25%]"
+                    sizes="(max-width: 768px) 45vw, 240px"
+                  />
                 </div>
-              </button>
-              
-              <button
-                type="button"
-                onClick={() => setVideoModal("full-view")}
-                className="absolute -bottom-4 -left-4 bg-card rounded-2xl shadow-xl p-4 animate-float animation-delay-300 z-20 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 group border border-border/50"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-900/50 transition-colors">
-                    <Play className="w-5 h-5 text-amber-600 fill-amber-600" />
+                {/* Noose-Free Gallery Link - glass pill on small circle */}
+                <Link
+                  href="/gallery?tab=videos&pet=dogs"
+                  className="absolute -right-2 md:right-auto md:-left-2 bottom-[15%] bg-card/90 backdrop-blur-md shadow-xl rounded-full px-3 py-2 animate-float animation-delay-300 z-30 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 group border border-primary/30"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/30">
+                      <Play className="w-3.5 h-3.5 text-primary-foreground fill-primary-foreground ml-0.5" />
+                    </div>
+                    <div className="pr-1">
+                      <p className="text-[10px] md:text-xs font-semibold text-foreground leading-tight">Noose-Free</p>
+                      <p className="text-[9px] text-muted-foreground">Videos</p>
+                    </div>
                   </div>
-                  <div className="text-left">
-                    <p className="text-sm font-medium text-foreground flex items-center gap-1.5">
-                      <Eye className="w-3.5 h-3.5 text-amber-600" />
-                      Full-View Grooming
-                    </p>
-                    <p className="text-xs text-muted-foreground">Watch Video</p>
-                  </div>
-                </div>
-              </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Video Modal */}
-      {videoModal && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-          onClick={() => setVideoModal(null)}
-          onKeyDown={(e) => e.key === "Escape" && setVideoModal(null)}
-          role="dialog"
-          aria-modal="true"
-          aria-label={videoModal === "noose-free" ? "Noose-Free Grooming Video" : "Full-View Grooming Video"}
-        >
-          <div 
-            className="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setVideoModal(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/60 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-colors"
-              aria-label="Close video"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <iframe
-              src={
-                videoModal === "noose-free"
-                  ? "https://www.youtube.com/embed/p1yflMD-UY4?autoplay=1"
-                  : "https://www.youtube.com/embed/xSXCRFb951I?start=47&autoplay=1"
-              }
-              title={videoModal === "noose-free" ? "Noose-Free Grooming at Vanity Fur" : "Full-View Grooming at Vanity Fur"}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            />
-          </div>
-        </div>
-      )}
     </section>
   )
 }

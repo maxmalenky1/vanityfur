@@ -6,18 +6,18 @@ import { ChevronDown, Scissors, Sparkles, Bath } from "lucide-react"
 const services = [
   {
     icon: Scissors,
-    title: "Dog & Cat Grooming",
-    description: "From breed-specific and show cuts to custom styles, senior pets, and special-care grooming, we tailor every service to your pet's individual needs."
+    title: "Noose-Free Dog Grooming",
+    description: "All dog grooming is 100% noose-free. While other groomers restrain dogs by the neck, we use gentle, hands-on techniques. From breed-specific cuts to custom styles, your dog stays calm and comfortable."
   },
   {
     icon: Sparkles,
-    title: "Nail, Paw & Ear Care",
-    description: "Essential care to keep your pet comfortable. Nail trimming or grinding, paw pad cleanup, and gentle ear cleaning performed with patience and care."
+    title: "No-Sedation Cat Grooming",
+    description: "Most groomers sedate cats or refuse them entirely. We NEVER sedate. You hold your cat in our dedicated Cat Room while we groom — the most stress-free experience possible. Lion cuts, sanitary trims, and full baths."
   },
   {
     icon: Bath,
-    title: "Bath, Brush & Blowout",
-    description: "Maintenance grooming for pets who need a refresh. Includes premium bathing, blow-dry, brushing, and light touch-ups to keep coats clean, soft, and healthy."
+    title: "Bath, Brush & Nail Care",
+    description: "Maintenance grooming for pets who need a refresh. Premium bathing, blow-dry, nail trimming or grinding, paw pad cleanup, and gentle ear cleaning — all performed with patience and care."
   }
 ]
 

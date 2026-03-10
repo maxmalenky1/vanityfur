@@ -1,26 +1,29 @@
 "use client"
 
 import Image from "next/image"
-import { CheckCircle, Heart, DollarSign } from "lucide-react"
+import { CheckCircle, Heart, Shield } from "lucide-react"
 
 const features = [
   {
-    icon: CheckCircle,
-    title: "Grooming that's personal and tailored.",
-    description: "No cookie-cutter services here. Every pet gets a boutique experience that's as unique as they are, with individual pampering in a welcoming, calm environment.",
+    icon: Shield,
+    title: "Always Noose-Free Dog Grooming",
+    description: "Unlike most groomers who restrain dogs by the neck, we NEVER use grooming nooses. Our gentle, hands-on techniques keep your dog calm and safe throughout the entire grooming session.",
     image: "/images/features/personal-grooming.webp",
+    imageAlt: "Noose-free dog grooming technique at Vanity Fur Pet Parlor Cumming GA - gentle hands-on grooming",
   },
   {
     icon: Heart,
     title: "Genuine care, from our family to yours.",
     description: "At the heart of Vanity Fur Pet Parlor is a deep respect for animals. Every grooming session is guided by genuine care and compassion, treating each pet like one of our own.",
     image: "/images/features/genuine-care.webp",
+    imageAlt: "Pet grooming with genuine care in Forsyth County - compassionate dog grooming at Vanity Fur",
   },
   {
-    icon: DollarSign,
-    title: "Premium service, attainable prices",
-    description: "Whether your pets need a quick bath or a full makeover, we provide VIP grooming that's gentle, attentive, and designed with your furry friends in mind - all at prices that make top-quality care accessible.",
+    icon: CheckCircle,
+    title: "Full-View, Transparent Grooming",
+    description: "No hidden rooms or closed doors. Watch your pet being pampered from start to finish. Our open grooming area means complete transparency and peace of mind.",
     image: "/images/features/premium-service.webp",
+    imageAlt: "Full-view transparent pet grooming salon in Cumming GA - watch your pet being groomed",
   }
 ]
 
@@ -61,7 +64,7 @@ export function FeaturesSection() {
                 </div>
                 <Image
                   src={feature.image || "/placeholder.svg"}
-                  alt={feature.title}
+                  alt={feature.imageAlt}
                   fill
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"

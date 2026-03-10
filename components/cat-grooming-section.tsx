@@ -43,14 +43,35 @@ export function CatGroomingSection() {
               Specialized Cat Grooming
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6 leading-tight">
-              A Unique Cat Grooming Experience
+              No-Sedation Cat Grooming
             </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+              Most groomers sedate cats because they&apos;re inexperienced and uncomfortable handling them. <strong className="text-foreground">We never sedate.</strong>
+            </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               I <strong className="text-foreground">LOVE</strong> cats! Through decades of hands-on experience since 1985, I have developed specialized techniques that allow me to offer a unique and compassionate grooming experience unavailable anywhere else.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Cat grooming takes place in our dedicated <strong className="text-foreground">&quot;Cat Room&quot;</strong> — a quiet space infused with calming pheromones. Owners stay present during grooming to comfort their cat. No sedation required.
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Cat grooming takes place in our dedicated <strong className="text-foreground">&quot;Cat Room&quot;</strong> — a quiet space infused with calming pheromones.
             </p>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              <strong className="text-foreground">You hold your cat in your arms</strong> throughout the entire grooming session. Your familiar touch and voice keeps your cat calm and secure — it&apos;s the most stress-free grooming experience possible, and your cat goes home immediately after.
+            </p>
+
+            {/* Phone Callout */}
+            <div className="bg-card border border-border/50 rounded-2xl p-5 mb-8">
+              <a href="tel:7706171374" className="flex items-start gap-4 group">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                  <Phone className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">(770) 617-1374</p>
+                  <p className="text-sm text-muted-foreground">
+                    Press <strong className="text-foreground">2</strong> for Cat Grooming appointments
+                  </p>
+                </div>
+              </a>
+            </div>
 
             <div className="flex flex-wrap gap-4">
               <Button 
@@ -69,9 +90,9 @@ export function CatGroomingSection() {
                 size="lg"
                 className="rounded-full px-8 h-12 border-2 border-border hover:border-primary/50 bg-transparent transition-all duration-300"
               >
-                <a href="tel:7708878880">
+                <a href="tel:7706171374">
                   <Phone className="mr-2 w-4 h-4" />
-                  Book by Phone
+                  Call Now
                 </a>
               </Button>
             </div>

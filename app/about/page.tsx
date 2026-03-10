@@ -7,12 +7,16 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
-  title: "About Us | Vanity Fur Pet Parlor - No-Noose Dog Grooming & Cat Grooming in Cumming, GA",
-  description: "Meet the team at Vanity Fur Pet Parlor in Cumming, GA. Family-owned since 1985, offering no-noose dog grooming and no-sedation cat grooming. Over 30 years of grooming mastery.",
-  keywords: ["no-noose dog grooming Cumming GA", "cat grooming Cumming GA", "pet grooming Cumming Georgia", "no sedation cat grooming"],
+  title: "About Us - Meet the Groomers | Vanity Fur Pet Parlor Cumming GA",
+  description: "Meet Tracey and the team at Vanity Fur Pet Parlor in Cumming, GA. Family-owned since 1985, offering noose-free dog grooming and no-sedation cat grooming in Forsyth County.",
+  keywords: ["noose-free dog grooming Cumming GA", "cat grooming Cumming GA", "pet grooming Forsyth County Georgia", "no sedation cat grooming", "pet groomers near me Cumming"],
+  alternates: {
+    canonical: 'https://vanityfur.us/about',
+  },
   openGraph: {
-    title: "About Vanity Fur Pet Parlor - No-Noose Pet Grooming in Cumming, GA",
-    description: "Family-owned since 1985. Compassionate, full-view, noose-free dog grooming and no-sedation cat grooming in Cumming, Georgia.",
+    title: "About Vanity Fur Pet Parlor - Noose-Free Pet Grooming Cumming GA",
+    description: "Family-owned since 1985. Compassionate, full-view, noose-free dog grooming and no-sedation cat grooming in Cumming, Georgia and Forsyth County.",
+    url: 'https://vanityfur.us/about',
   },
 }
 
@@ -29,8 +33,8 @@ const coreValues = [
   },
   {
     icon: Heart,
-    title: "Compassionate Care",
-    description: "We are animal lovers and artists with over 30 years of grooming mastery. Every pet receives calm, species-respectful care."
+    title: "Seated Face-to-Face Grooming",
+    description: "Our groomers sit at non-elevated tables, working face-to-face with your dog at their level. This creates a calming, equal partnership rather than towering above them, reducing anxiety and building trust."
   },
   {
     icon: Star,
@@ -133,7 +137,7 @@ export default function AboutPage() {
                 I <strong className="text-foreground">LOVE</strong> cats! I have been grooming cats since 1985. Through decades of hands-on experience, I have developed specialized techniques through real-world practice that allow me to offer a unique and compassionate grooming experience unavailable anywhere else.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                This experience takes place in the <strong className="text-foreground">&quot;Cat Room&quot;</strong> at Vanity Fur Pet Parlor — a quiet space infused with cat pheromones and calming visuals. Cat owners remain present during grooming to help comfort their cat as we work together to decide what is best.
+                This experience takes place in the <strong className="text-foreground">&quot;Cat Room&quot;</strong> at Vanity Fur Pet Parlor — a quiet space infused with cat pheromones and calming visuals. <strong className="text-foreground">You hold your cat in your arms</strong> while I groom, and we work together to decide what is best for your cat.
               </p>
 
               <div className="space-y-4 mb-8">
@@ -151,8 +155,8 @@ export default function AboutPage() {
                     <Heart className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">Owner Stays Present</h4>
-                    <p className="text-muted-foreground text-sm">You remain with your cat to provide comfort and support</p>
+                    <h4 className="font-semibold text-foreground">Owner Holds Their Cat</h4>
+                    <p className="text-muted-foreground text-sm">Your familiar touch and voice keeps your cat calm and secure</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -183,8 +187,8 @@ export default function AboutPage() {
                   asChild
                   className="bg-foreground text-background hover:bg-foreground/90 rounded-full"
                 >
-                  <a href="tel:7708878880">
-                    Call (770) 887-8880
+                  <a href="tel:7706171374">
+                    Call (770) 617-1374
                   </a>
                 </Button>
               </div>
@@ -243,7 +247,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-6">{member.bio}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
                 </div>
               </div>
             ))}
@@ -260,10 +264,10 @@ export default function AboutPage() {
         
         <div className="container relative mx-auto px-6 text-center">
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-background mb-6">
-            Ready to Experience the Vanity Fur Difference?
+            Book Your Pet&apos;s Next S&apos;Paw Day
           </h2>
           <p className="text-background/70 mb-10 max-w-xl mx-auto text-lg">
-            Book an appointment today and let us pamper your beloved pet with compassionate, noose-free grooming.
+            Experience the Vanity Fur difference with compassionate, noose-free grooming for dogs and no-sedation grooming for cats.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Button 

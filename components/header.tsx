@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState, useEffect } from "react"
-import { Menu, X, PawPrint } from "lucide-react"
+import { Menu, X, PawPrint, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 
@@ -43,6 +43,7 @@ export function Header() {
             {[
               { href: "/", label: "Home" },
               { href: "/about", label: "About" },
+              { href: "/services", label: "Services" },
               { href: "/gallery", label: "Gallery" },
               { href: "/reviews", label: "Reviews" },
               { href: "/blog", label: "Blog" },
@@ -62,6 +63,15 @@ export function Header() {
           {/* CTA Button & Theme Toggle */}
           <div className="hidden md:flex items-center gap-2">
             <ThemeToggle />
+            <Button 
+              asChild
+              variant="outline"
+              className="rounded-full px-4 h-10"
+            >
+              <a href="tel:7706171374" title="Call (770) 617-1374 - Press 2 for cats">
+                <Phone className="w-4 h-4" />
+              </a>
+            </Button>
             <Button 
               asChild
               className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-6 transition-all duration-300 hover:shadow-lg hover:shadow-foreground/20 hover:-translate-y-0.5"
@@ -97,6 +107,7 @@ export function Header() {
             {[
               { href: "/", label: "Home" },
               { href: "/about", label: "About" },
+              { href: "/services", label: "Services" },
               { href: "/gallery", label: "Gallery" },
               { href: "/reviews", label: "Reviews" },
               { href: "/blog", label: "Blog" },
@@ -115,8 +126,12 @@ export function Header() {
               asChild
               className="mt-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full h-12"
             >
-              <Link href="/contact" onClick={() => setIsMenuOpen(false)}>Book Appointment</Link>
+              <a href="tel:7706171374" onClick={() => setIsMenuOpen(false)}>
+                <Phone className="mr-2 w-4 h-4" />
+                Call (770) 617-1374
+              </a>
             </Button>
+            <p className="mt-2 text-xs text-center text-muted-foreground">Press 2 for cat appointments</p>
           </nav>
         </div>
       </div>
