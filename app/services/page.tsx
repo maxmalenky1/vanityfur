@@ -12,37 +12,57 @@ import { Button } from "@/components/ui/button"
 
 const dogServices = [
   {
-    title: "Full Grooming",
-    description: "Complete grooming with bath, haircut, nail trim, ear cleaning, and styling. Always noose-free.",
-    features: ["Bath & blow dry", "Breed-specific or custom cut", "Nail trimming", "Ear cleaning", "Cologne/perfume"],
+    title: "Bath, Brush & Blowout",
+    description: "Refreshing bath with premium shampoo, thorough brushing, and professional blow dry.",
+    features: ["Premium shampoo bath", "Blow dry & fluff", "Thorough brushing", "Nail trim included"],
   },
   {
-    title: "Bath & Brush",
-    description: "Refreshing bath with premium shampoo, blow dry, and thorough brushing.",
-    features: ["Premium shampoo", "Blow dry & fluff", "Thorough brushing", "Nail trim", "Light trimming"],
+    title: "Nail, Paw & Ear Care",
+    description: "Professional nail trimming or grinding, paw pad maintenance, and ear cleaning.",
+    features: ["Nail trimming or grinding", "Paw pad cleanup", "Ear cleaning", "Sanitary trim available"],
   },
   {
-    title: "Nail & Paw Care",
-    description: "Professional nail trimming or grinding plus paw pad maintenance.",
-    features: ["Nail trimming or grinding", "Paw pad cleanup", "Sanitary trim available"],
+    title: "Breed Standard Cuts",
+    description: "Expert breed-specific grooming to standard. We know your breed.",
+    features: ["Breed-specific styling", "Show-quality cuts", "Hand scissoring", "Proper coat maintenance"],
+  },
+  {
+    title: "Custom & Specialty Cuts",
+    description: "Personalized cuts tailored to your dog's lifestyle and your preferences.",
+    features: ["Shedding elimination cuts", "Fresh start cuts", "Creative styling", "Custom requests welcome"],
+  },
+  {
+    title: "Special Needs & Seniors",
+    description: "Extra patience and accommodations for older dogs or those with special needs.",
+    features: ["Gentle handling", "Extra breaks as needed", "Modified techniques", "Comfort-focused approach"],
   },
 ]
 
 const catServices = [
   {
-    title: "Lion Cut",
-    description: "Classic lion cut leaving a full mane, tail tuft, and leg furnishings. No sedation required.",
-    features: ["Full body shave", "Mane left full", "Tail tuft styling", "Owner holds cat"],
+    title: "Lion & Summer Cuts",
+    description: "Classic lion cut or summer trim. Perfect for Main Coons, Persians, Himalayans, and more.",
+    features: ["Full body shave", "Mane styling", "Tail tuft", "You hold your cat"],
   },
   {
-    title: "Full Bath & Groom",
-    description: "Complete cat grooming with bath, blow dry, nail trim, and mat removal.",
-    features: ["Gentle bath", "Blow dry", "Nail trimming", "Mat removal", "Ear cleaning"],
+    title: "Expert Matt Removal",
+    description: "Gentle, careful removal of matted fur without sedation.",
+    features: ["Careful de-matting", "Coat assessment", "Prevention tips", "Long or short hair"],
   },
   {
-    title: "Sanitary Trim",
-    description: "Quick trim around the sanitary areas and belly for hygiene and comfort.",
-    features: ["Sanitary area trim", "Belly trim", "Quick 15-20 minutes"],
+    title: "Nail Trims & Nail Caps",
+    description: "Professional nail trimming with optional soft nail caps applied.",
+    features: ["Nail trimming", "Nail caps available", "Multiple colors", "Safe application"],
+  },
+  {
+    title: "Maintenance Comb-Outs",
+    description: "Regular brushing and combing to prevent mats and keep coats healthy.",
+    features: ["Thorough combing", "Undercoat removal", "Coat conditioning", "Shedding elimination"],
+  },
+  {
+    title: "Sanitary & Tummy Trims",
+    description: "Hygiene trims for comfort and cleanliness.",
+    features: ["Sanitary area trim", "Tummy shave", "Quick service", "Less stress for kitty"],
   },
 ]
 
@@ -229,7 +249,7 @@ export default function ServicesPage() {
             </div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {dogServices.map((service, index) => (
               <ServiceCard key={index} service={service} index={index} variant="light" />
             ))}
@@ -252,16 +272,16 @@ export default function ServicesPage() {
             </div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {catServices.map((service, index) => (
               <ServiceCard key={index} service={service} index={index} variant="dark" />
             ))}
           </div>
 
           <AnimatedSection delay={500} className="mt-8">
-            <div className="p-6 bg-background rounded-2xl border border-border/50 max-w-2xl">
+            <div className="p-6 bg-background rounded-2xl border border-border/50 max-w-3xl">
               <p className="text-muted-foreground text-sm">
-                <strong className="text-foreground">Cat grooming appointments must be booked by phone.</strong> Call us to discuss your cat&apos;s needs and schedule a time in our dedicated Cat Room.
+                <strong className="text-foreground">We serve all cats!</strong> Especially Maine Coons, Persians, Himalayans, and other long-haired breeds. Cat grooming appointments must be booked by phone — call to discuss your cat&apos;s needs.
               </p>
             </div>
           </AnimatedSection>

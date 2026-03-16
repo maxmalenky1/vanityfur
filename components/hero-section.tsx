@@ -24,12 +24,12 @@ export function HeroSection() {
             </div>
             
             <h1 className="animate-fade-up animation-delay-100 font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-foreground leading-[1.1] tracking-tight mb-6">
-              Full-View, Noose-Free
-              <span className="block text-primary">Dog & Cat Grooming</span>
+              Full-View Grooming
+              <span className="block text-primary">Dogs & Cats</span>
             </h1>
             
             <p className="animate-fade-up animation-delay-200 text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              Cumming, GA&apos;s premier pet grooming salon. Compassionate, full-view, and always <strong className="text-foreground">noose-free</strong> grooming for dogs and cats. Over 35 years of grooming mastery.
+              Cumming, GA&apos;s premier pet salon. <strong className="text-foreground">Noose-free</strong> for dogs. <strong className="text-foreground">No sedation</strong> for cats — we hold them with care. Full-view grooming so you can watch. 35+ years of mastery.
             </p>
             
             <div className="animate-fade-up animation-delay-300 flex flex-wrap gap-4 mb-12">
@@ -86,7 +86,7 @@ export function HeroSection() {
                 <div className="absolute inset-[-16px] rounded-full border border-primary/10" />
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-card shadow-2xl">
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rs%3Dw_600%2Ch_800%2Ccg_true-7aFRtzCWuve4yFJbsjpqtcpKfZRExJ.webp"
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tracey-JXXwPA1koBA07KJIrc3pwpzCt03H4o.png"
                     alt="Professional noose-free dog grooming at Vanity Fur Pet Parlor in Cumming GA - happy dog being groomed"
                     fill
                     className="object-cover object-[center_20%]"
@@ -118,7 +118,7 @@ export function HeroSection() {
                 <div className="absolute inset-[-12px] rounded-full border border-primary/10" />
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-card shadow-2xl">
                   <Image
-                    src="/images/features/personal-grooming.webp"
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sarah%20%282%29-jSzfk5HH7sk67Wl7MNAhz3543m4C5b.png"
                     alt="Full-view pet grooming in Forsyth County - beautifully groomed dog at Vanity Fur"
                     fill
                     className="object-cover object-[center_25%]"
