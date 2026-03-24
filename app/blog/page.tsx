@@ -76,11 +76,11 @@ const staticPosts = [
     id: "choosing-the-right-groomer",
     slug: "choosing-the-right-groomer",
     title: "5 Signs You've Found the Right Pet Groomer",
-    excerpt: "Not all groomers are created equal. Learn what to look for in a professional groomer, from certifications and cleanliness to how they handle your pet during the process.",
+    excerpt: "Finding the right groomer is one of the most important decisions you'll make as a pet parent. From transparency to gentle handling, here's what to look for.",
     image: "/images/gallery/bruce-charlie.jpg",
     tag: "Advice",
     date: "November 20, 2025",
-    readTime: "3 min read",
+    readTime: "5 min read",
   },
 ]
 
@@ -148,13 +148,13 @@ export default async function BlogPage() {
                   className="group block bg-card rounded-3xl overflow-hidden border border-border/50 hover:shadow-xl transition-all duration-500"
                 >
                   <div className="grid md:grid-cols-2 gap-0">
-                    <div className="aspect-[4/3] md:aspect-auto relative overflow-hidden bg-muted">
+                    <div className="aspect-[4/3] md:aspect-[3/2] relative overflow-hidden bg-transparent flex items-center justify-center">
                       {featured.image ? (
                         <Image
                           src={featured.image}
                           alt={featured.title}
                           fill
-                          className="object-contain group-hover:scale-105 transition-transform duration-700"
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
                         />
                       ) : (
                         <div className="w-full h-full bg-primary/10 flex items-center justify-center">
@@ -211,13 +211,13 @@ export default async function BlogPage() {
                     href={`/blog/${post.slug || post.id}`}
                     className="group flex flex-col bg-card rounded-2xl overflow-hidden border border-border/50 hover:shadow-lg transition-all duration-500"
                   >
-                    <div className="aspect-[16/10] relative overflow-hidden bg-muted">
+                    <div className="aspect-[16/10] relative overflow-hidden bg-transparent flex items-center justify-center">
                       {post.image ? (
                         <Image
                           src={post.image}
                           alt={post.title}
                           fill
-                          className="object-contain group-hover:scale-105 transition-transform duration-700"
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
                         />
                       ) : (
                         <div className="w-full h-full bg-primary/10 flex items-center justify-center">

@@ -29,7 +29,7 @@ export function HeroSection() {
             </h1>
             
             <p className="animate-fade-up animation-delay-200 text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              Cumming, GA&apos;s premier pet salon. <strong className="text-foreground">Noose-free</strong> for dogs. <strong className="text-foreground">No sedation</strong> for cats — we hold them with care. Full-view grooming so you can watch. 35+ years of mastery.
+              Cumming, GA&apos;s premier pet salon. <strong className="text-foreground">Noose-free</strong> for dogs. <strong className="text-foreground">No sedation</strong> for cats — you sit with and comfort your cat throughout. 35+ years of grooming mastery.
             </p>
             
             <div className="animate-fade-up animation-delay-300 flex flex-wrap gap-4 mb-12">
@@ -86,7 +86,7 @@ export function HeroSection() {
                 <div className="absolute inset-[-16px] rounded-full border border-primary/10" />
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-card shadow-2xl">
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tracey-JXXwPA1koBA07KJIrc3pwpzCt03H4o.png"
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Tracey%20%282%29-2GpKQlCM02iW6HXuKYcXiL4XDB55jt.png"
                     alt="Professional noose-free dog grooming at Vanity Fur Pet Parlor in Cumming GA - happy dog being groomed"
                     fill
                     className="object-cover object-[center_20%]"
@@ -94,21 +94,6 @@ export function HeroSection() {
                     sizes="(max-width: 768px) 60vw, 320px"
                   />
                 </div>
-                {/* Full-View Gallery Link - glass pill on large circle */}
-                <Link
-                  href="/gallery?tab=videos&pet=dogs"
-                  className="absolute -left-2 md:left-auto md:-right-2 top-[12%] bg-card/90 backdrop-blur-md shadow-xl rounded-full px-3 py-2 animate-float z-30 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 group border border-amber-500/30"
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center shadow-lg shadow-amber-500/30">
-                      <Play className="w-4 h-4 text-white fill-white ml-0.5" />
-                    </div>
-                    <div className="pr-1">
-                      <p className="text-[10px] md:text-xs font-semibold text-foreground leading-tight">Full-View</p>
-                      <p className="text-[9px] text-muted-foreground">Videos</p>
-                    </div>
-                  </div>
-                </Link>
               </div>
 
               {/* Small Circle - Second Face */}
@@ -125,22 +110,38 @@ export function HeroSection() {
                     sizes="(max-width: 768px) 45vw, 240px"
                   />
                 </div>
-                {/* Noose-Free Gallery Link - glass pill on small circle */}
-                <Link
-                  href="/gallery?tab=videos&pet=dogs"
-                  className="absolute -right-2 md:right-auto md:-left-2 bottom-[15%] bg-card/90 backdrop-blur-md shadow-xl rounded-full px-3 py-2 animate-float animation-delay-300 z-30 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 group border border-primary/30"
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/30">
-                      <Play className="w-3.5 h-3.5 text-primary-foreground fill-primary-foreground ml-0.5" />
-                    </div>
-                    <div className="pr-1">
-                      <p className="text-[10px] md:text-xs font-semibold text-foreground leading-tight">Noose-Free</p>
-                      <p className="text-[9px] text-muted-foreground">Videos</p>
-                    </div>
-                  </div>
-                </Link>
               </div>
+              
+              {/* Floating badges - positioned outside circles */}
+              <Link
+                href="/gallery?tab=videos&pet=dogs"
+                className="absolute -top-2 right-[20%] md:top-0 md:right-[5%] bg-card/90 backdrop-blur-md shadow-xl rounded-full px-3 py-2 animate-float z-30 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 group border border-amber-500/30"
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 md:w-8 md:h-8 bg-amber-500 rounded-full flex items-center justify-center shadow-lg shadow-amber-500/30">
+                    <Play className="w-3.5 h-3.5 md:w-4 md:h-4 text-white fill-white ml-0.5" />
+                  </div>
+                  <div className="pr-1">
+                    <p className="text-[10px] md:text-xs font-semibold text-foreground leading-tight">Full-View</p>
+                    <p className="text-[9px] text-muted-foreground">Videos</p>
+                  </div>
+                </div>
+              </Link>
+              
+              <Link
+                href="/gallery?tab=videos&pet=dogs"
+                className="absolute bottom-0 left-[5%] md:bottom-2 md:left-0 bg-card/90 backdrop-blur-md shadow-xl rounded-full px-3 py-2 animate-float animation-delay-300 z-30 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 group border border-primary/30"
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 md:w-7 md:h-7 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/30">
+                    <Play className="w-3 h-3 md:w-3.5 md:h-3.5 text-primary-foreground fill-primary-foreground ml-0.5" />
+                  </div>
+                  <div className="pr-1">
+                    <p className="text-[10px] md:text-xs font-semibold text-foreground leading-tight">Noose-Free</p>
+                    <p className="text-[9px] text-muted-foreground">Videos</p>
+                  </div>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

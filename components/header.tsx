@@ -80,17 +80,27 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile Theme Toggle & Menu Button */}
+          {/* Mobile Buttons */}
           <div className="md:hidden flex items-center gap-1">
+            <Button 
+              asChild
+              variant="ghost"
+              size="icon"
+              className="rounded-full w-9 h-9"
+            >
+              <a href="tel:7706171374" title="Call (770) 617-1374">
+                <Phone className="w-4 h-4" />
+              </a>
+            </Button>
             <ThemeToggle />
             <button
               type="button"
-              className="p-3 text-foreground hover:bg-muted rounded-full transition-colors flex items-center justify-center"
+              className="p-2 text-foreground hover:bg-muted rounded-full transition-colors flex items-center justify-center"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -99,11 +109,11 @@ export function Header() {
         <div 
           className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
             isMenuOpen 
-              ? "max-h-[400px] opacity-100 mt-4 pointer-events-auto" 
+              ? "max-h-[600px] opacity-100 mt-4 pointer-events-auto" 
               : "max-h-0 opacity-0 pointer-events-none"
           }`}
         >
-          <nav className="flex flex-col gap-1 pb-4 bg-card/95 rounded-xl p-2">
+          <nav className="flex flex-col gap-1 pb-4 bg-card/95 rounded-xl p-3">
             {[
               { href: "/", label: "Home" },
               { href: "/about", label: "About" },

@@ -134,10 +134,10 @@ export default function AboutPage() {
                 A Unique Cat Grooming Experience
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                I <strong className="text-foreground">LOVE</strong> cats! I have been grooming cats since 1985. Through decades of hands-on experience, I have developed specialized techniques through real-world practice that allow me to offer a unique and compassionate grooming experience unavailable anywhere else.
+                I <strong className="text-foreground">LOVE</strong> cats! I have been grooming cats since 1985. Through decades of hands-on experience, I have developed specialized techniques that allow me to offer a unique and compassionate grooming experience unavailable anywhere else.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                This experience takes place in the <strong className="text-foreground">&quot;Cat Room&quot;</strong> at Vanity Fur Pet Parlor — a quiet space infused with cat pheromones and calming visuals. <strong className="text-foreground">You hold your cat in your arms</strong> while I groom, and we work together to decide what is best for your cat.
+                This experience takes place in the <strong className="text-foreground">&quot;Cat Room&quot;</strong> at Vanity Fur Pet Parlor — a quiet space infused with cat pheromones and calming visuals. <strong className="text-foreground">You sit across the table, holding and comforting your cat</strong> while I groom. We decide everything together during the assessment — no surprises.
               </p>
 
               <div className="space-y-4 mb-8">
@@ -146,7 +146,7 @@ export default function AboutPage() {
                     <CheckCircle className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">No Sedation Required</h4>
+                    <h4 className="font-semibold text-foreground">No Sedation — Ever</h4>
                     <p className="text-muted-foreground text-sm">Gentle techniques mean your cat stays calm naturally</p>
                   </div>
                 </div>
@@ -155,8 +155,8 @@ export default function AboutPage() {
                     <Heart className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">Owner Holds Their Cat</h4>
-                    <p className="text-muted-foreground text-sm">Your familiar touch and voice keeps your cat calm and secure</p>
+                    <h4 className="font-semibold text-foreground">You&apos;re With Your Cat</h4>
+                    <p className="text-muted-foreground text-sm">Sit across the table, hold and comfort your cat throughout</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -165,7 +165,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">30-45 Minutes</h4>
-                    <p className="text-muted-foreground text-sm">Quick, efficient grooming with minimal stress. Cats leave beautifully groomed and return home immediately.</p>
+                    <p className="text-muted-foreground text-sm">Quick, efficient grooming. Cats go home immediately after.</p>
                   </div>
                 </div>
               </div>

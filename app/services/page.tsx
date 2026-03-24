@@ -1,35 +1,33 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Phone, Cat, Dog, Shield, Heart, Check } from "lucide-react"
+import { ArrowRight, Phone, Cat, Dog, Shield, Heart, Eye, Check, Ear, Scissors, ChevronDown } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 
-// Metadata is handled in layout.tsx for client components
-
 const dogServices = [
   {
     title: "Bath, Brush & Blowout",
-    description: "Refreshing bath with premium shampoo, thorough brushing, and professional blow dry.",
+    description: "Premium bath with quality shampoo, thorough brushing, and professional blow dry.",
     features: ["Premium shampoo bath", "Blow dry & fluff", "Thorough brushing", "Nail trim included"],
   },
   {
-    title: "Nail, Paw & Ear Care",
-    description: "Professional nail trimming or grinding, paw pad maintenance, and ear cleaning.",
-    features: ["Nail trimming or grinding", "Paw pad cleanup", "Ear cleaning", "Sanitary trim available"],
+    title: "Deep Ear Canal Cleaning",
+    description: "Thorough, above-and-beyond ear care. Many dogs grow hair deep in the ear canal, trapping moisture and bacteria. We safely remove it — completely painless as there are no nerve endings.",
+    features: ["Hair removal from ear canal", "pH-balanced ear flush", "Prevents infection & odor", "Painless process"],
   },
   {
-    title: "Breed Standard Cuts",
-    description: "Expert breed-specific grooming to standard. We know your breed.",
-    features: ["Breed-specific styling", "Show-quality cuts", "Hand scissoring", "Proper coat maintenance"],
+    title: "Breed & Custom Styling",
+    description: "Expert breed-standard cuts or personalized styles. Show-quality hand scissoring tailored to your dog's coat and lifestyle.",
+    features: ["Breed-specific styling", "Custom creative cuts", "Shedding elimination cuts", "Fresh start cuts"],
   },
   {
-    title: "Custom & Specialty Cuts",
-    description: "Personalized cuts tailored to your dog's lifestyle and your preferences.",
-    features: ["Shedding elimination cuts", "Fresh start cuts", "Creative styling", "Custom requests welcome"],
+    title: "Nail Care & At-Home Tips",
+    description: "Professional nail filing using specialized diamond-plated files. Plus, we teach you at-home trimming tips, tools, and techniques.",
+    features: ["Diamond-plated filing", "Paw pad cleanup", "At-home counseling", "Tools & technique tips"],
   },
   {
     title: "Special Needs & Seniors",
@@ -40,29 +38,24 @@ const dogServices = [
 
 const catServices = [
   {
-    title: "Lion & Summer Cuts",
-    description: "Classic lion cut or summer trim. Perfect for Main Coons, Persians, Himalayans, and more.",
-    features: ["Full body shave", "Mane styling", "Tail tuft", "You hold your cat"],
+    title: "Lion, Summer & Specialty Cuts",
+    description: "Classic lion cut or summer trim with your choice of tail styling — tail tuft, squirrel tail, or natural.",
+    features: ["Full body shave", "Mane styling options", "Tail tuft, squirrel, or natural", "Sanitary trim included"],
   },
   {
-    title: "Expert Matt Removal",
-    description: "Gentle, careful removal of matted fur without sedation.",
-    features: ["Careful de-matting", "Coat assessment", "Prevention tips", "Long or short hair"],
+    title: "Matt Removal & Maintenance",
+    description: "Gentle de-matting and regular comb-outs to prevent tangles. We'll show you how to manage mats at home too.",
+    features: ["Careful de-matting", "Prevention tips", "At-home mat care tips", "Nail trim included"],
   },
   {
-    title: "Nail Trims & Nail Caps",
-    description: "Professional nail trimming with optional soft nail caps applied.",
-    features: ["Nail trimming", "Nail caps available", "Multiple colors", "Safe application"],
-  },
-  {
-    title: "Maintenance Comb-Outs",
-    description: "Regular brushing and combing to prevent mats and keep coats healthy.",
-    features: ["Thorough combing", "Undercoat removal", "Coat conditioning", "Shedding elimination"],
+    title: "Shedding Elimination",
+    description: "Reduce shedding dramatically for both long-haired and short-haired cats.",
+    features: ["Long-haired cats", "Short-haired cats", "Less fur everywhere", "Healthier coat"],
   },
   {
     title: "Sanitary & Tummy Trims",
-    description: "Hygiene trims for comfort and cleanliness.",
-    features: ["Sanitary area trim", "Tummy shave", "Quick service", "Less stress for kitty"],
+    description: "Hygiene trims for comfort and cleanliness. Quick service with less stress.",
+    features: ["Sanitary area trim", "Tummy shave", "Quick service", "Nail trim included"],
   },
 ]
 
@@ -151,6 +144,7 @@ function ServiceCard({ service, index, variant = "light" }: { service: typeof do
 
 export default function ServicesPage() {
   const [heroLoaded, setHeroLoaded] = useState(false)
+  const [showDogNote, setShowDogNote] = useState(false)
 
   useEffect(() => {
     setHeroLoaded(true)
@@ -189,7 +183,7 @@ export default function ServicesPage() {
               transitionDelay: '100ms'
             }}
           >
-            Professional Pet Grooming Services in Cumming, GA
+            Professional Pet Grooming in Cumming, GA
           </h1>
           <p 
             className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed transition-all duration-700"
@@ -199,7 +193,7 @@ export default function ServicesPage() {
               transitionDelay: '200ms'
             }}
           >
-            Noose-free dog grooming and no-sedation cat grooming. Full-view, compassionate care for your beloved pets since 1985.
+            Noose-free dog grooming and no-sedation cat grooming. Full-view, compassionate care since 1985.
           </p>
         </div>
       </section>
@@ -207,26 +201,37 @@ export default function ServicesPage() {
       {/* Key Differentiators */}
       <section className="py-12 bg-card border-y border-border/50">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <AnimatedSection delay={0}>
               <div className="flex items-center gap-4 p-5 bg-background rounded-2xl group hover:shadow-lg transition-all duration-300">
                 <div className="w-14 h-14 bg-amber-500/10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Shield className="w-7 h-7 text-amber-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Noose-Free Dog Grooming</h3>
-                  <p className="text-sm text-muted-foreground">We never restrain dogs by the neck — gentle, hands-on care only.</p>
+                  <h3 className="font-semibold text-foreground">Noose-Free for Dogs</h3>
+                  <p className="text-sm text-muted-foreground">We never restrain dogs by the neck.</p>
                 </div>
               </div>
             </AnimatedSection>
-            <AnimatedSection delay={150}>
+            <AnimatedSection delay={100}>
               <div className="flex items-center gap-4 p-5 bg-background rounded-2xl group hover:shadow-lg transition-all duration-300">
                 <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Heart className="w-7 h-7 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">No-Sedation Cat Grooming</h3>
-                  <p className="text-sm text-muted-foreground">You hold your cat while we groom — no sedation ever needed.</p>
+                  <h3 className="font-semibold text-foreground">No Sedation for Cats</h3>
+                  <p className="text-sm text-muted-foreground">You stay with your cat the entire time.</p>
+                </div>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={200}>
+              <div className="flex items-center gap-4 p-5 bg-background rounded-2xl group hover:shadow-lg transition-all duration-300">
+                <div className="w-14 h-14 bg-emerald-500/10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <Eye className="w-7 h-7 text-emerald-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground">Full-View Grooming</h3>
+                  <p className="text-sm text-muted-foreground">Open, transparent grooming areas.</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -238,13 +243,41 @@ export default function ServicesPage() {
       <section className="py-20 md:py-28 bg-background" id="dog-services">
         <div className="container mx-auto px-6">
           <AnimatedSection>
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center">
                 <Dog className="w-6 h-6 text-amber-600" />
               </div>
               <div>
                 <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">Dog Grooming</h2>
                 <p className="text-muted-foreground">Always noose-free, always full-view</p>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={100} className="mb-8">
+            <button
+              onClick={() => setShowDogNote(!showDogNote)}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-muted hover:bg-muted/80 dark:bg-muted/50 dark:hover:bg-muted/70 rounded-full border border-border/50 text-left transition-all duration-300"
+            >
+              <Eye className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+              <span className="text-sm text-muted-foreground">A quick note about transparency</span>
+              <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-300 ${showDogNote ? 'rotate-180' : ''}`} />
+            </button>
+            
+            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${showDogNote ? 'max-h-[600px] opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
+              <div className="bg-card dark:bg-card/50 rounded-2xl border border-border/50 p-6 max-w-2xl space-y-4">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  It’s actually best if you’re not present during your dog’s grooming. Dogs tend to get very excited when their owner is nearby, which can make grooming difficult. For the best experience, we recommend letting us work our magic while you relax.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  <strong className="text-foreground">Transparency matters!</strong> Wondering what is happening behind closed doors should cause that icky feeling in your stomach. You should know — there&apos;s a reason for those closed doors. I have witnessed those reasons firsthand in my formative years.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  <strong className="text-foreground">Vanity Fur has nothing to hide.</strong> We welcome curiosity and invite questions and interaction. Everything we do is out in the open, all day, every day. You&apos;re free to pop in any time!
+                </p>
+                <p className="text-sm text-muted-foreground/70 leading-relaxed italic">
+                  (Just don&apos;t arrive too early when your own pet is on the finishing table — there will be premature celebratory activity that prohibits expedient completion of the process!)
+                </p>
               </div>
             </div>
           </AnimatedSection>
@@ -261,27 +294,65 @@ export default function ServicesPage() {
       <section className="py-20 md:py-28 bg-card" id="cat-services">
         <div className="container mx-auto px-6">
           <AnimatedSection>
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                <Cat className="w-6 h-6 text-primary" />
+            <div className="flex flex-col md:flex-row md:items-start gap-8 mb-10">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <Cat className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">Cat Grooming</h2>
+                    <p className="text-muted-foreground">No sedation — you&apos;re with your cat the whole time</p>
+                  </div>
+                </div>
+                
+                <div className="p-5 bg-primary/5 rounded-xl border border-primary/20 mb-6">
+                  <p className="text-foreground font-medium mb-2">We serve ALL cats!</p>
+                  <p className="text-sm text-muted-foreground">
+                    Especially Maine Coons, Persians, Himalayans, and other long-haired breeds. During your cat&apos;s appointment, you sit across the table and help comfort them. We decide everything together during the assessment — no surprises.
+                  </p>
+                </div>
+
+                <div className="grid sm:grid-cols-3 gap-4">
+                  <div className="flex items-center gap-2 p-3 bg-background rounded-lg">
+                    <Heart className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-sm text-muted-foreground">You comfort your cat</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-3 bg-background rounded-lg">
+                    <Eye className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-sm text-muted-foreground">Sit across the table</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-3 bg-background rounded-lg">
+                    <Shield className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-sm text-muted-foreground">No sedation ever</span>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">Cat Grooming</h2>
-                <p className="text-muted-foreground">No sedation — you hold your cat in our Cat Room</p>
+
+              <div className="w-full md:w-72 lg:w-80 shrink-0">
+                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Cat-1NSIBZGY40T4T13a91IEnUR8NXVMZ2.png"
+                    alt="Owner holding and comforting their cat during no-sedation grooming at Vanity Fur Pet Parlor"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground text-center mt-2">You sit with and comfort your cat throughout</p>
               </div>
             </div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {catServices.map((service, index) => (
               <ServiceCard key={index} service={service} index={index} variant="dark" />
             ))}
           </div>
 
           <AnimatedSection delay={500} className="mt-8">
-            <div className="p-6 bg-background rounded-2xl border border-border/50 max-w-3xl">
+            <div className="p-5 bg-background rounded-2xl border border-border/50 max-w-2xl">
               <p className="text-muted-foreground text-sm">
-                <strong className="text-foreground">We serve all cats!</strong> Especially Maine Coons, Persians, Himalayans, and other long-haired breeds. Cat grooming appointments must be booked by phone — call to discuss your cat&apos;s needs.
+                Check our <Link href="/reviews" className="text-primary hover:underline">reviews</Link> to see how we make cats&apos; lives better — and their humans&apos; lives easier!
               </p>
             </div>
           </AnimatedSection>
@@ -289,51 +360,42 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28 bg-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl animate-pulse" />
-        </div>
-        
-        <div className="container relative mx-auto px-6 text-center">
+      <section className="py-16 md:py-20 bg-card border-t border-border/50">
+        <div className="container mx-auto px-6 text-center">
           <AnimatedSection>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-background mb-6">
-              Ready to Book Your Pet&apos;s S&apos;Paw Day?
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4">
+              Ready to Book?
             </h2>
           </AnimatedSection>
           <AnimatedSection delay={100}>
-            <p className="text-background/70 mb-10 max-w-xl mx-auto text-lg">
-              Call to schedule your appointment. Cat grooming appointments must be booked by phone.
+            <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+              Call to schedule your appointment or request online.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={200}>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-3 justify-center">
               <Button 
                 asChild
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-14 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 h-12"
               >
                 <a href="tel:7706171374">
-                  <Phone className="mr-2 w-5 h-5" />
-                  Call to Book
+                  <Phone className="mr-2 w-4 h-4" />
+                  (770) 617-1374
                 </a>
               </Button>
               <Button 
                 asChild
                 variant="outline"
                 size="lg"
-                className="rounded-full px-8 h-14 border-2 border-background/30 text-background hover:bg-background/10 bg-transparent transition-all duration-300 hover:scale-105"
+                className="rounded-full px-6 h-12"
               >
                 <Link href="/contact">
                   Request Online
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
             </div>
-          </AnimatedSection>
-          <AnimatedSection delay={300}>
-            <p className="mt-6 text-sm text-background/60">
-              <span className="font-semibold text-background/90">(770) 617-1374</span> — Press 2 for cat appointments
-            </p>
           </AnimatedSection>
         </div>
       </section>

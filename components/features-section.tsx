@@ -7,7 +7,7 @@ const features = [
   {
     icon: Shield,
     title: "Always Noose-Free Dog Grooming",
-    description: "Unlike most groomers who restrain dogs by the neck, we NEVER use grooming nooses. Our gentle, hands-on techniques keep your dog calm and safe throughout the entire grooming session.",
+    description: "We NEVER use grooming nooses. Our low tables allow groomers to sit at eye level with your pet, fostering a calm, compassionate connection that results in a cooperative grooming relationship.",
     image: "/images/features/personal-grooming.webp",
     imageAlt: "Noose-free dog grooming technique at Vanity Fur Pet Parlor Cumming GA - gentle hands-on grooming",
   },
@@ -21,9 +21,9 @@ const features = [
   {
     icon: CheckCircle,
     title: "Full-View, Transparent Grooming",
-    description: "No hidden rooms or closed doors. Watch your pet being pampered from start to finish. Our open grooming area means complete transparency and peace of mind.",
+    description: "Wondering what happens behind closed doors? At Vanity Fur, there are no closed doors. Everything we do is out in the open, all day, every day. We have nothing to hide.",
     image: "/images/features/premium-service.webp",
-    imageAlt: "Full-view transparent pet grooming salon in Cumming GA - watch your pet being groomed",
+    imageAlt: "Full-view transparent pet grooming salon in Cumming GA - open grooming area",
   }
 ]
 

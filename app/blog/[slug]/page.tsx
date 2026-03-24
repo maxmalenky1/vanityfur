@@ -34,17 +34,18 @@ const staticPosts: Record<string, {
   },
   "full-view-grooming-explained": {
     title: "Full-View Grooming: See Your Pet the Entire Time",
-    excerpt: "At Vanity Fur, our open grooming area means you can watch your pet being pampered from start to finish.",
+    excerpt: "Wondering what happens behind closed doors at your groomer? At Vanity Fur, there are no closed doors — everything is out in the open.",
     image: "/images/gallery/schnauzer-blue.jpg",
     tag: "Transparency",
     date: "January 8, 2026",
-    readTime: "3 min read",
+    readTime: "4 min read",
     content: [
-      "Have you ever dropped your pet off at a groomer and wondered what was happening behind closed doors? At Vanity Fur Pet Parlor, we believe transparency is key to building trust with pet parents.",
-      "Our full-view grooming setup means you can see your pet throughout the entire grooming process. There are no hidden rooms or closed doors. Every bath, brush, and trim happens in plain sight.",
-      "Full-view grooming isn't just about transparency, it's about accountability. When groomers know they're being observed, it creates a natural incentive to maintain the highest standards of care and professionalism.",
-      "Many pet parents tell us that watching their pet's grooming session for the first time was a revelation. They could see firsthand the gentle techniques we use and how comfortable their pets were throughout the process.",
-      "If your current groomer takes your pet behind closed doors and you're not sure what happens during the grooming process, consider visiting Vanity Fur. We're proud to show you exactly how we treat your beloved family members.",
+      "Have you ever dropped your pet off at a groomer and wondered what was happening behind closed doors? That icky feeling in your stomach when you wonder what's going on back there? You should know — there's often a reason for those closed doors. At Vanity Fur Pet Parlor, we believe transparency is key to building trust with pet parents.",
+      "Our full-view grooming setup means you can see every stage of the grooming process. There are no hidden rooms or closed doors. Every bath, brush, and trim happens in plain sight. Vanity Fur has nothing to hide. We welcome curiosity and invite questions and interaction.",
+      "Everything we do is out in the open, all day, every day. You're free to pop in any time! The only exception — don't arrive too early when your own dog is on the finishing table, because there will be premature celebratory activity that prohibits expedient completion of the process!",
+      "Full-view grooming isn't just about transparency — it's about accountability. When groomers know their work is visible, it creates a natural incentive to maintain the highest standards of care and professionalism at all times.",
+      "Many pet parents tell us that seeing our grooming process for the first time was a revelation. They could see firsthand the gentle techniques we use, the calm energy, and how comfortable their pets were throughout. No more wondering, no more worrying.",
+      "If your current groomer takes your pet behind closed doors and you're left wondering what happens during the grooming process, consider visiting Vanity Fur. We're proud to show you exactly how we treat your beloved family members — because we have nothing to hide.",
     ],
   },
   "cat-grooming-without-sedation": {
@@ -97,18 +98,19 @@ const staticPosts: Record<string, {
   },
   "choosing-the-right-groomer": {
     title: "5 Signs You've Found the Right Pet Groomer",
-    excerpt: "Not all groomers are created equal. Learn what to look for.",
+    excerpt: "Finding the right groomer is one of the most important decisions you'll make as a pet parent. Here are five signs you've found the right one.",
     image: "/images/gallery/bruce-charlie.jpg",
     tag: "Advice",
     date: "November 20, 2025",
-    readTime: "3 min read",
+    readTime: "5 min read",
     content: [
       "Finding the right groomer for your pet is one of the most important decisions you'll make as a pet parent. Here are five signs that indicate you've found a great groomer.",
-      "First, transparency is key. A good groomer should welcome questions and be open about their process. If you can watch the grooming session, even better. At Vanity Fur, our full-view grooming means you can always see what's happening.",
-      "Second, look for gentle handling techniques. Watch how the groomer interacts with your pet. Do they use patience and calm energy? A great groomer never rushes or forces a pet into uncomfortable positions.",
-      "Third, check for proper certifications and experience. Professional groomers invest in their education and stay current with best practices. Ask about their training background and how long they've been grooming.",
-      "Fourth, cleanliness matters. The grooming facility should be well-maintained, organized, and hygienic. Equipment should be properly sanitized between pets, and the space should feel welcoming.",
-      "Fifth, happy return visits. The ultimate test of a great groomer is how your pet reacts when returning. If your pet seems excited or at least relaxed when arriving for their appointment, that's a strong sign you've found the right fit.",
+      "First, transparency is key. A good groomer should welcome questions and be open about their process. If you can openly see every stage of grooming, even better. At Vanity Fur, our full-view grooming means you can always see what's happening — no closed doors, no wondering.",
+      "Second, look for gentle handling techniques. Watch how the groomer interacts with pets. Here at Vanity Fur, we stand apart. We do not use grooming nooses. We have tables that are low and groomers are seated at eye level with the pets we are working with, fostering a more intimate, connected, compassionate exchange where your dog is able to feel the calm and compassionate energy, resulting in a great cooperative relationship between your pet and groomer!",
+      "Third, experience matters! The grooming industry is unregulated in the state of Georgia. \"Certifications\" and various accreditations should be given realistic consideration, given that any person, qualified or not, can easily acquire official-looking certificates or documents on the internet to hang on their wall or post on their website. Look for actual history and organic reviews, testimonials, photos and videos. You'll find all of that at Vanity Fur — our long storied history in the industry, our generations of happy clients, and a gallery full of our artistry.",
+      "Fourth, transparency matters! Wondering what is happening behind closed doors should cause that icky feeling in your stomach. You should know, there's a reason for those closed doors. I have witnessed those reasons firsthand in my formative years. Vanity Fur has nothing to hide. We welcome curiosity and invite questions and interaction. Everything we do is out in the open, all day, every day. You're free to pop in any time!",
+      "Fifth, pay attention to what your pet is telling you. The ultimate test of a great groomer is how your pet reacts when returning home. Is there proud prancing and absence of post-traumatic behavior? Does your pet seem excited or at least relaxed when arriving for their next appointment? These are strong signs that you've found the right place for your pet!",
+      "Many of our clients say they can't mention coming to see us until it's time to leave because they have to listen to the excitement! And so many dogs know when they turn down our road and begin happy hopping all over the car and drag their owners to the door! Of course there's always the ones with a flair for the dramatic and expertise at the guilt trip of their heartbreaking abandonment with vibrating and carrying on, but that's usually just for you. We can send you a video of how quickly they rebound after you are out of sight!",
     ],
   },
 }
@@ -266,12 +268,12 @@ export default async function BlogPostPage({ params }: Props) {
           <section className="pb-8">
             <div className="container mx-auto px-6">
               <div className="max-w-3xl mx-auto">
-                <div className="aspect-[16/9] relative rounded-2xl overflow-hidden bg-muted">
+                <div className="aspect-[16/9] relative rounded-2xl overflow-hidden bg-transparent flex items-center justify-center">
                   <Image
                     src={post.image}
                     alt={post.title}
                     fill
-                    className="object-contain"
+                    className="object-cover"
                     priority
                   />
                 </div>
