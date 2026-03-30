@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, Scissors, Sparkles, Bath } from "lucide-react"
+import { ChevronDown, Scissors, Sparkles, Hand, Ear } from "lucide-react"
 
 const services = [
   {
@@ -15,9 +15,14 @@ const services = [
     description: "Most groomers sedate cats or refuse them entirely. We NEVER sedate. You hold your cat in our dedicated Cat Room while we groom — the most stress-free experience possible. Lion cuts, sanitary trims, and full baths."
   },
   {
-    icon: Bath,
-    title: "Bath, Brush & Nail Care",
-    description: "Maintenance grooming for pets who need a refresh. Premium bathing, blow-dry, nail trimming or grinding, paw pad cleanup, and gentle ear cleaning — all performed with patience and care."
+    icon: Hand,
+    title: "Nail Care",
+    description: "Professional nail trimming and grinding services to keep your pet's paws healthy and comfortable. We take our time with nervous pets, using gentle techniques to make the experience stress-free."
+  },
+  {
+    icon: Ear,
+    title: "Ear Care",
+    description: "Gentle ear cleaning and maintenance to keep your pet's ears healthy and free of buildup. We carefully inspect and clean ears using safe, pet-friendly products — perfect for breeds prone to ear issues."
   }
 ]
 

@@ -373,11 +373,11 @@ export default function ServicesPage() {
             </p>
           </AnimatedSection>
           <AnimatedSection delay={200}>
-            <div className="flex flex-wrap gap-3 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
               <Button 
                 asChild
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 h-12"
+                className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-11"
               >
                 <a href="tel:7706171374">
                   <Phone className="mr-2 w-4 h-4" />
@@ -388,7 +388,7 @@ export default function ServicesPage() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="rounded-full px-6 h-12"
+                className="w-full sm:w-auto rounded-full px-8 h-11"
               >
                 <Link href="/contact">
                   Request Online
