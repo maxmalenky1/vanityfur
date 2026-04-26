@@ -29,7 +29,7 @@ export function HeroSection() {
             </h1>
             
             <p className="animate-fade-up animation-delay-200 text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              Cumming, GA&apos;s premier pet salon. <strong className="text-foreground">Noose-free</strong> for dogs. <strong className="text-foreground">No sedation</strong> for cats. We are animal lovers with 35+ years of grooming mastery.
+              Cumming, GA&apos;s premier pet salon. <strong className="text-foreground">Noose-free</strong> for dogs. <strong className="text-foreground">No sedation</strong> for cats. We are animal lovers and artists with 30+ years of grooming mastery.
             </p>
             
             <div className="animate-fade-up animation-delay-300 flex flex-wrap gap-4 mb-12">
