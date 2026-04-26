@@ -307,10 +307,19 @@ export default function ServicesPage() {
                 </div>
                 
                 <div className="p-5 bg-primary/5 rounded-xl border border-primary/20 mb-6">
-                  <p className="text-foreground font-medium mb-2">We serve ALL cats!</p>
-                  <p className="text-sm text-muted-foreground">
-                    Especially Maine Coons, Persians, Himalayans, and other long-haired breeds. During your cat&apos;s appointment, you sit across the table and help comfort them. We decide everything together during the assessment — no surprises.
-                  </p>
+                  <p className="text-foreground font-medium mb-3">Serving all cats! Especially Maine Coons, Persians, Himalayans and any other long or short haired breeds:</p>
+                  <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-primary shrink-0" /> Expert matt removal</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-primary shrink-0" /> Maintenance combouts</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-primary shrink-0" /> Lion Cuts</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-primary shrink-0" /> Summer Cuts</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-primary shrink-0" /> Tummy Shaves</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-primary shrink-0" /> Sanitary trims</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-primary shrink-0" /> Shedding ELIMINATION shaves</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-primary shrink-0" /> Nail trims</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-primary shrink-0" /> Nail caps</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-primary shrink-0" /> Baths upon special request</li>
+                  </ul>
                 </div>
 
                 <div className="grid sm:grid-cols-3 gap-4">

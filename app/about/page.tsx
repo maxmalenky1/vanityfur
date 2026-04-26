@@ -20,29 +20,6 @@ export const metadata: Metadata = {
   },
 }
 
-const coreValues = [
-  {
-    icon: Shield,
-    title: "Always Noose-Free",
-    description: "Your pet's safety is paramount. Our grooming is always noose-free, ensuring a comfortable and stress-free experience for every dog."
-  },
-  {
-    icon: Eye,
-    title: "Full-View Grooming",
-    description: "Complete transparency with front and back grooming areas visible and open cages. See exactly how your pet is being cared for."
-  },
-  {
-    icon: Heart,
-    title: "Seated Face-to-Face Grooming",
-    description: "Our groomers sit at non-elevated tables, working face-to-face with your dog at their level. This creates a calming, equal partnership rather than towering above them, reducing anxiety and building trust."
-  },
-  {
-    icon: Star,
-    title: "Unmatched Quality",
-    description: "From show-quality extravagant grooming to simple baths and nail services, our breed-standard cuts and custom preferences are unmatched."
-  }
-]
-
 const team = [
   {
     name: "Tracey",
@@ -93,31 +70,86 @@ export default function AboutPage() {
       {/* Core Values */}
       <section className="py-20 md:py-28 bg-card">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full mb-6">
               What Sets Us Apart
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
               Our Core Principles
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We are proficient in everything from show-quality extravagant grooming to simple baths and nail services. The quality of our work is unmatched and our prices are competitive.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              We stand apart because we have over 30 years of practices developed around <strong className="text-foreground">kindness, respect, compassion, safety and common sense</strong>. Our techniques were developed to make pets feel secure, confident and proud, while their owners feel peace of mind and happy with the way their fur baby looks and feels at the end of the day, knowing that they were treated with love and excellence of care!
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-            {coreValues.map((value, index) => (
-              <div 
-                key={index} 
-                className="bg-background rounded-3xl p-8 border border-border/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group"
-              >
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110">
-                  <value.icon className="w-7 h-7 text-primary" />
+          {/* Why We Are Different */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <h3 className="font-serif text-2xl md:text-3xl font-semibold text-foreground text-center mb-8">
+              Why We Are Different
+            </h3>
+            <p className="text-center text-muted-foreground mb-10">
+              We proudly diverge from industry norms:
+            </p>
+            <div className="grid gap-4">
+              <div className="bg-background rounded-2xl p-6 border border-border/50 flex items-start gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                  <Shield className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">{value.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-1">&quot;Grooming Nooses&quot;</h4>
+                  <p className="text-muted-foreground">Never have and never will use or need them!</p>
+                </div>
               </div>
-            ))}
+              <div className="bg-background rounded-2xl p-6 border border-border/50 flex items-start gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                  <Eye className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-1">&quot;Full View&quot; Transparent Grooming</h4>
+                  <p className="text-muted-foreground">For all to see, all day, every day.</p>
+                </div>
+              </div>
+              <div className="bg-background rounded-2xl p-6 border border-border/50 flex items-start gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                  <Heart className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-1">Nail &quot;Filing&quot; Instead of &quot;Grinding&quot;</h4>
+                  <p className="text-muted-foreground">Your dog will enjoy gentle nail filing and happy healthy paws.</p>
+                </div>
+              </div>
+              <div className="bg-background rounded-2xl p-6 border border-border/50 flex items-start gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                  <CheckCircle className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-1">Comprehensive Ear Care</h4>
+                  <p className="text-muted-foreground">You can rely that your dog&apos;s ear canals will be comprehensively and competently cared for and reported on.</p>
+                </div>
+              </div>
+              <div className="bg-background rounded-2xl p-6 border border-border/50 flex items-start gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                  <Sparkles className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-1">Sedation-Free Interactive Cat Grooming</h4>
+                  <p className="text-muted-foreground">No one else offers sedation-free, interactive, low-stress cat grooming where you are involved with every step and take your cat home immediately, happy and beautifully groomed.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Artists & Animal Lovers */}
+          <div className="max-w-3xl mx-auto text-center bg-background rounded-3xl p-8 md:p-12 border border-border/50">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Star className="w-8 h-8 text-primary" />
+            </div>
+            <h3 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4">
+              Animal Lovers &amp; Artists
+            </h3>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              We are not just pet groomers. We are animal lovers and also artists. You get <strong className="text-foreground">BOTH</strong>! Each pet leaves us, our furry masterpiece, created with love!
+            </p>
           </div>
         </div>
       </section>

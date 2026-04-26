@@ -76,12 +76,12 @@ export function HeroSection() {
             </div>
           </div>
           
-          {/* Images - Tracey on top, Sarah below */}
+          {/* Images - Tracey on top left, Sarah below right */}
           <div className="relative animate-fade-up animation-delay-200">
-            <div className="flex flex-col items-center gap-6 max-w-[400px] mx-auto">
-              {/* Tracey - Large Circle */}
-              <div className="text-center">
-                <div className="relative w-48 h-48 md:w-64 md:h-64 mx-auto">
+            <div className="flex flex-col items-center gap-6 max-w-[450px] mx-auto">
+              {/* Tracey - Equal size, positioned left */}
+              <div className="text-center self-start ml-0 md:ml-4">
+                <div className="relative w-44 h-44 md:w-52 md:h-52 mx-auto">
                   <div className="absolute inset-[-8px] rounded-full border-2 border-primary/20" />
                   <div className="absolute inset-[-16px] rounded-full border border-primary/10" />
                   <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-card shadow-2xl">
@@ -91,33 +91,33 @@ export function HeroSection() {
                       fill
                       className="object-cover object-[center_20%]"
                       priority
-                      sizes="(max-width: 768px) 192px, 256px"
+                      sizes="(max-width: 768px) 176px, 208px"
                     />
                   </div>
                 </div>
                 <div className="mt-4">
                   <p className="text-base md:text-lg font-semibold text-foreground">Tracey</p>
-                  <p className="text-sm text-muted-foreground">Owner/Operator</p>
+                  <p className="text-xs md:text-sm text-muted-foreground">Owner/Operator/Master Groomer</p>
                 </div>
               </div>
 
-              {/* Sarah - Smaller Circle */}
-              <div className="text-center">
-                <div className="relative w-36 h-36 md:w-44 md:h-44 mx-auto">
-                  <div className="absolute inset-[-6px] rounded-full border-2 border-primary/20" />
-                  <div className="absolute inset-[-12px] rounded-full border border-primary/10" />
+              {/* Sarah - Equal size, positioned right */}
+              <div className="text-center self-end mr-0 md:mr-4">
+                <div className="relative w-44 h-44 md:w-52 md:h-52 mx-auto">
+                  <div className="absolute inset-[-8px] rounded-full border-2 border-primary/20" />
+                  <div className="absolute inset-[-16px] rounded-full border border-primary/10" />
                   <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-card shadow-2xl">
                     <Image
                       src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sarah%20%282%29-jSzfk5HH7sk67Wl7MNAhz3543m4C5b.png"
                       alt="Sarah, Manager and Master Groomer at Vanity Fur Pet Parlor"
                       fill
                       className="object-cover object-[center_25%]"
-                      sizes="(max-width: 768px) 144px, 176px"
+                      sizes="(max-width: 768px) 176px, 208px"
                     />
                   </div>
                 </div>
-                <div className="mt-3">
-                  <p className="text-sm md:text-base font-semibold text-foreground">Sarah</p>
+                <div className="mt-4">
+                  <p className="text-base md:text-lg font-semibold text-foreground">Sarah</p>
                   <p className="text-xs md:text-sm text-muted-foreground">Manager/Master Groomer</p>
                 </div>
               </div>

@@ -1,28 +1,38 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, Scissors, Sparkles, Hand, Ear } from "lucide-react"
+import Link from "next/link"
+import { ChevronDown, Scissors, Sparkles, PawPrint, Stethoscope } from "lucide-react"
+import type { ReactNode } from "react"
 
-const services = [
+const services: { icon: typeof Scissors; title: string; description: ReactNode }[] = [
   {
     icon: Scissors,
     title: "Noose-Free Dog Grooming",
-    description: "All dog grooming is 100% noose-free. While other groomers restrain dogs by the neck, we use gentle, hands-on techniques. From breed-specific cuts to custom styles, your dog stays calm and comfortable."
+    description: "Grooming at Vanity Fur is 100% noose free! While it is the industry standard to restrain dogs by the neck with a \"Grooming Noose\", this is just another one of the many ways we stand apart! Our methods revolve around compassion, respect, common sense and safety. We connect with the heart and mind, not brute force and awkward struggle, with your pet dangling, suspended and strung up on a noose! I have always found the practice to be barbaric and unproductive."
   },
   {
     icon: Sparkles,
     title: "No-Sedation Cat Grooming",
-    description: "Most groomers sedate cats or refuse them entirely. We NEVER sedate. You hold your cat in our dedicated Cat Room while we groom — the most stress-free experience possible. Lion cuts, sanitary trims, and full baths."
+    description: (
+      <>
+        Most groomers sedate cats or refuse them entirely. We never sedate! You help hold and comfort your kitty through the 30-45 minute process, then take them home — the most stress free experience possible. Lion Cuts, Sanitary Trims, Expert matt removal, Nail Trims. Read our{" "}
+        <Link href="/reviews#cats" className="text-primary hover:underline font-medium">
+          reviews and testimonials
+        </Link>
+        !
+      </>
+    )
   },
   {
-    icon: Hand,
+    icon: PawPrint,
     title: "Nail Care",
-    description: "Professional nail trimming and grinding services to keep your pet's paws healthy and comfortable. We take our time with nervous pets, using gentle techniques to make the experience stress-free."
+    description: "Grooming at Vanity Fur always comes with a nail trim. We also recommend a nail \"filing\" afterwards to further shorten, smooth and round the fresh cut edge on each nail. Notice the difference here too, where we stand apart! We file with a smooth high speed rotary tool with a diamond wheel, as opposed to most other places, \"grinding\" with rough low grit sandpaper disks on a dremel that create loud vibration and heat that dogs hate, fear and fight. Many pets have become nervous from this process at other places. We take our time, using gentle techniques to make the experience become stress free as possible and keep your dog's paws healthy and comfortable."
   },
   {
-    icon: Ear,
+    icon: Stethoscope,
     title: "Ear Care",
-    description: "Gentle ear cleaning and maintenance to keep your pet's ears healthy and free of buildup. We carefully inspect and clean ears using safe, pet-friendly products — perfect for breeds prone to ear issues."
+    description: "We understand the importance of ear health and proper maintenance! We know the delicate anatomy of the ear and breed specific requirements. Breeds that grow hair inside the canal will have that hair properly, painlessly and thoroughly removed before the bath. All dogs receive an ear lavage during the bath, flushing out all wax and debris or buildup, sending your pet home with PH balanced, clean, fresh, dry ears! You will also be made aware of any potential issues we observe like infections, yeast or allergy symptoms that might need further attention from your vet."
   }
 ]
 
@@ -80,7 +90,7 @@ export function ServicesSection() {
                 </div>
               </button>
               <div className={`overflow-hidden transition-all duration-500 ${
-                openIndex === index ? "max-h-40 pb-6 md:pb-8" : "max-h-0"
+                openIndex === index ? "max-h-96 pb-6 md:pb-8" : "max-h-0"
               }`}>
                 <p className="text-muted-foreground leading-relaxed pl-16 md:pl-20 pr-14">
                   {service.description}

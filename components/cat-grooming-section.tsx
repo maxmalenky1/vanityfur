@@ -45,17 +45,15 @@ export function CatGroomingSection() {
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6 leading-tight">
               No-Sedation Cat Grooming
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-              Most groomers sedate cats because they&apos;re inexperienced handling them. <strong className="text-foreground">We never sedate.</strong>
-            </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              I <strong className="text-foreground">LOVE</strong> cats! Through decades of hands-on experience since 1985, I&apos;ve developed specialized techniques for a unique, compassionate grooming experience unavailable anywhere else.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              Cat grooming takes place in our dedicated <strong className="text-foreground">&quot;Cat Room&quot;</strong> — a quiet space infused with calming pheromones. You sit across the table, hold and comfort your cat throughout the entire session.
+              Specialized techniques developed over decades, enable me to offer a unique, compassionate and interactive grooming experience for both you and your cat that is unavailable anywhere else! You stay, help hold and comfort your kitty and return home with your beautifully groomed happy cat!
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              We decide everything together during assessment — no surprises. Your familiar touch and voice keeps your cat calm and secure, and your cat goes home immediately after.
+              Read our{" "}
+              <Link href="/reviews#cats" className="text-primary hover:underline font-medium">
+                testimonials and reviews
+              </Link>
+              !
             </p>
 
             {/* Phone Callout */}
