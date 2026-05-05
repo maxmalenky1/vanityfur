@@ -50,7 +50,7 @@ const catServices = [
   {
     title: "Shedding Elimination",
     description: "Reduce shedding dramatically for both long-haired and short-haired cats.",
-    features: ["Long-haired cats", "Short-haired cats", "Less fur everywhere", "Healthier coat"],
+    features: ["Long-haired cats", "Short-haired cats", "Less fur everywhere", "Cats love short hair! Healthier, happier cat!"],
   },
   {
     title: "Sanitary & Tummy Trims",

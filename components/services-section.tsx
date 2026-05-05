@@ -90,9 +90,9 @@ export function ServicesSection() {
                 </div>
               </button>
               <div className={`overflow-hidden transition-all duration-500 ${
-                openIndex === index ? "max-h-96 pb-6 md:pb-8" : "max-h-0"
+                openIndex === index ? "max-h-[500px] pb-6 md:pb-8" : "max-h-0"
               }`}>
-                <p className="text-muted-foreground leading-relaxed pl-16 md:pl-20 pr-14">
+                <p className="text-muted-foreground leading-relaxed pl-4 sm:pl-16 md:pl-20 pr-4 sm:pr-14 text-sm sm:text-base">
                   {service.description}
                 </p>
               </div>

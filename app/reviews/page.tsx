@@ -264,33 +264,33 @@ export default function ReviewsPage() {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             {/* Tabs */}
-            <div className="flex justify-center gap-4 mb-8">
+            <div className="flex justify-center gap-2 sm:gap-4 mb-8">
               <button
                 onClick={() => { setActiveTab('dogs'); setIsAutoPlaying(true); }}
-                className={`flex items-center gap-3 px-6 py-4 rounded-2xl border-2 transition-all duration-300 ${
+                className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 transition-all duration-300 ${
                   activeTab === 'dogs' 
                     ? 'bg-amber-500/10 border-amber-500 text-amber-600 dark:text-amber-400' 
                     : 'bg-card border-border hover:border-amber-500/50 text-muted-foreground hover:text-foreground'
                 }`}
               >
-                <Dog className="w-6 h-6" />
+                <Dog className="w-5 h-5 sm:w-6 sm:h-6" />
                 <div className="text-left">
-                  <p className="font-semibold">Dog Reviews</p>
-                  <p className="text-xs opacity-80">{dogReviews.length} reviews</p>
+                  <p className="font-semibold text-sm sm:text-base">Dogs</p>
+                  <p className="text-xs opacity-80 hidden sm:block">{dogReviews.length} reviews</p>
                 </div>
               </button>
               <button
                 onClick={() => { setActiveTab('cats'); setIsAutoPlaying(true); }}
-                className={`flex items-center gap-3 px-6 py-4 rounded-2xl border-2 transition-all duration-300 ${
+                className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 transition-all duration-300 ${
                   activeTab === 'cats' 
                     ? 'bg-primary/10 border-primary text-primary' 
                     : 'bg-card border-border hover:border-primary/50 text-muted-foreground hover:text-foreground'
                 }`}
               >
-                <Cat className="w-6 h-6" />
+                <Cat className="w-5 h-5 sm:w-6 sm:h-6" />
                 <div className="text-left">
-                  <p className="font-semibold">Cat Reviews</p>
-                  <p className="text-xs opacity-80">{catReviews.length} reviews</p>
+                  <p className="font-semibold text-sm sm:text-base">Cats</p>
+                  <p className="text-xs opacity-80 hidden sm:block">{catReviews.length} reviews</p>
                 </div>
               </button>
             </div>
@@ -321,7 +321,7 @@ export default function ReviewsPage() {
                     </div>
                     <span className="text-muted-foreground hidden sm:inline">|</span>
                     <p className="text-sm text-muted-foreground text-center">
-                      You hold your cat while we groom - gentle techniques mean your cat stays calm naturally
+                      An interactive grooming experience for both you and your cat, unavailable anywhere else!
                     </p>
                   </>
                 )}
@@ -343,42 +343,42 @@ export default function ReviewsPage() {
             </div>
             
             {/* Card */}
-            <div className="bg-card rounded-3xl p-8 md:p-12 lg:p-16 shadow-xl border border-border/50 relative">
+            <div className="bg-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 lg:p-16 shadow-xl border border-border/50 relative mx-2 sm:mx-0">
               {/* Navigation Arrows */}
               <button 
                 onClick={goToPrev}
-                className="absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:border-primary/50 transition-all"
+                className="absolute -left-2 sm:left-0 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 bg-card border border-border rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:border-primary/50 transition-all"
               >
-                <ChevronLeft className="w-5 h-5 text-foreground" />
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-foreground" />
               </button>
               <button 
                 onClick={goToNext}
-                className="absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:border-primary/50 transition-all"
+                className="absolute -right-2 sm:right-0 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 bg-card border border-border rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:border-primary/50 transition-all"
               >
-                <ChevronRight className="w-5 h-5 text-foreground" />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-foreground" />
               </button>
 
               {/* Stars */}
-              <div className="flex justify-center gap-1 mb-8">
+              <div className="flex justify-center gap-1 mb-4 sm:mb-8">
                 {[...Array(reviews[currentReview]?.rating || 5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
+                  <Star key={i} className="w-5 h-5 sm:w-6 sm:h-6 fill-amber-400 text-amber-400" />
                 ))}
               </div>
               
               {/* Content */}
-              <blockquote className="text-center text-foreground text-lg md:text-xl lg:text-2xl leading-relaxed mb-10 font-light">
+              <blockquote className="text-center text-foreground text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed mb-6 sm:mb-10 font-light px-2 sm:px-4">
                 &ldquo;{reviews[currentReview]?.content}&rdquo;
               </blockquote>
               
               {/* Author */}
               <div className="flex flex-col items-center">
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center text-white font-semibold text-xl mb-4 shadow-lg ${
+                <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-white font-semibold text-base sm:text-xl mb-3 sm:mb-4 shadow-lg ${
                   activeTab === 'dogs' ? 'bg-gradient-to-br from-amber-500 to-amber-600' : 'bg-gradient-to-br from-primary to-primary/70'
                 }`}>
                   {reviews[currentReview]?.initials}
                 </div>
-                <p className="font-semibold text-foreground text-lg">{reviews[currentReview]?.name}</p>
-                <p className="text-muted-foreground">{reviews[currentReview]?.role}</p>
+                <p className="font-semibold text-foreground text-base sm:text-lg">{reviews[currentReview]?.name}</p>
+                <p className="text-muted-foreground text-sm sm:text-base">{reviews[currentReview]?.role}</p>
               </div>
             </div>
 

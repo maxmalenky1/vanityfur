@@ -90,50 +90,50 @@ export default function AboutPage() {
             <p className="text-center text-muted-foreground mb-10">
               We proudly diverge from industry norms:
             </p>
-            <div className="grid gap-4">
-              <div className="bg-background rounded-2xl p-6 border border-border/50 flex items-start gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
-                  <Shield className="w-6 h-6 text-primary" />
+            <div className="grid gap-3 sm:gap-4">
+              <div className="bg-background rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-border/50 flex items-start gap-3 sm:gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0">
+                  <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">&quot;Grooming Nooses&quot;</h4>
-                  <p className="text-muted-foreground">Never have and never will use or need them!</p>
-                </div>
-              </div>
-              <div className="bg-background rounded-2xl p-6 border border-border/50 flex items-start gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
-                  <Eye className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">&quot;Full View&quot; Transparent Grooming</h4>
-                  <p className="text-muted-foreground">For all to see, all day, every day.</p>
+                <div className="min-w-0">
+                  <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">&quot;Grooming Nooses&quot;</h4>
+                  <p className="text-muted-foreground text-xs sm:text-sm">Never have and never will use or need them!</p>
                 </div>
               </div>
-              <div className="bg-background rounded-2xl p-6 border border-border/50 flex items-start gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
-                  <Heart className="w-6 h-6 text-primary" />
+              <div className="bg-background rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-border/50 flex items-start gap-3 sm:gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0">
+                  <Eye className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Nail &quot;Filing&quot; Instead of &quot;Grinding&quot;</h4>
-                  <p className="text-muted-foreground">Your dog will enjoy gentle nail filing and happy healthy paws.</p>
-                </div>
-              </div>
-              <div className="bg-background rounded-2xl p-6 border border-border/50 flex items-start gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
-                  <CheckCircle className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Comprehensive Ear Care</h4>
-                  <p className="text-muted-foreground">You can rely that your dog&apos;s ear canals will be comprehensively and competently cared for and reported on.</p>
+                <div className="min-w-0">
+                  <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">&quot;Full View&quot; Transparent Grooming</h4>
+                  <p className="text-muted-foreground text-xs sm:text-sm">For all to see, all day, every day.</p>
                 </div>
               </div>
-              <div className="bg-background rounded-2xl p-6 border border-border/50 flex items-start gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
-                  <Sparkles className="w-6 h-6 text-primary" />
+              <div className="bg-background rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-border/50 flex items-start gap-3 sm:gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0">
+                  <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Sedation-Free Interactive Cat Grooming</h4>
-                  <p className="text-muted-foreground">No one else offers sedation-free, interactive, low-stress cat grooming where you are involved with every step and take your cat home immediately, happy and beautifully groomed.</p>
+                <div className="min-w-0">
+                  <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">Nail &quot;Filing&quot; Instead of &quot;Grinding&quot;</h4>
+                  <p className="text-muted-foreground text-xs sm:text-sm">Your dog will enjoy gentle nail filing and happy healthy paws.</p>
+                </div>
+              </div>
+              <div className="bg-background rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-border/50 flex items-start gap-3 sm:gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0">
+                  <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                </div>
+                <div className="min-w-0">
+                  <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">Comprehensive Ear Care</h4>
+                  <p className="text-muted-foreground text-xs sm:text-sm">You can rely that your dog&apos;s ear canals will be comprehensively and competently cared for and reported on.</p>
+                </div>
+              </div>
+              <div className="bg-background rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-border/50 flex items-start gap-3 sm:gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0">
+                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                </div>
+                <div className="min-w-0">
+                  <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">Sedation-Free Interactive Cat Grooming</h4>
+                  <p className="text-muted-foreground text-xs sm:text-sm">No one else offers sedation-free, interactive, low-stress cat grooming where you are involved with every step and take your cat home immediately, happy and beautifully groomed.</p>
                 </div>
               </div>
             </div>
@@ -229,8 +229,8 @@ export default function AboutPage() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-muted">
                 <Image
-                  src="/images/tracey-white-cat.jpg"
-                  alt="Tracey with white fluffy Ragdoll cat - Cat grooming expert at Vanity Fur Pet Parlor Cumming GA"
+                  src="/images/tracey-with-cat.png"
+                  alt="Tracey holding a beautiful white Persian cat - Cat grooming expert at Vanity Fur Pet Parlor Cumming GA"
                   fill
                   className="object-cover"
                 />

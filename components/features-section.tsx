@@ -8,22 +8,22 @@ const features = [
     icon: Shield,
     title: "Always Noose-Free Dog Grooming",
     description: "We never use grooming nooses like every other grooming facility! We use gentle physical support and calm reassuring voices to keep pets positioned correctly. Our tables are low, allowing us to sit at eye level, fostering a more intimate connection and direct exchange of energy that animals truly understand.",
-    image: "/images/features/personal-grooming.webp",
-    imageAlt: "Noose-free dog grooming technique at Vanity Fur Pet Parlor Cumming GA - gentle hands-on grooming",
+    image: "/images/yorkie-black-bg.jpg",
+    imageAlt: "Beautifully groomed Yorkie with flower bow - noose-free dog grooming at Vanity Fur Pet Parlor Cumming GA",
   },
   {
     icon: Heart,
     title: "Genuine care, from our family to yours.",
     description: "At the heart of Vanity Fur Pet Parlor is a deep respect for animals. Every grooming session is guided by genuine care and compassion, treating each pet like one of our own.",
-    image: "/images/features/genuine-care.webp",
-    imageAlt: "Pet grooming with genuine care in Forsyth County - compassionate dog grooming at Vanity Fur",
+    image: "/images/persian-cat-teal.jpg",
+    imageAlt: "Stunning white Persian cat with fluffy coat - compassionate cat grooming at Vanity Fur",
   },
   {
     icon: CheckCircle,
     title: "Full-View, Transparent Grooming",
     description: "Wondering what happens behind closed doors? At Vanity Fur, everything is full view all day every day! We welcome curiosity and invite questions or pop-ins anytime! (Except for just a little early from your pick up time, when your own pet is likely to be on the finishing table. This is because there will be premature celebratory activity, prohibiting expedient completion of the process! LOL!)",
-    image: "/images/features/premium-service.webp",
-    imageAlt: "Full-view transparent pet grooming salon in Cumming GA - open grooming area",
+    image: "/images/shihtzu-blue-bones.jpg",
+    imageAlt: "Adorable Shih Tzu with perfect grooming - full-view transparent pet grooming in Cumming GA",
   }
 ]
 
@@ -49,7 +49,7 @@ export function FeaturesSection() {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {features.map((feature, index) => (
             <div 
               key={index} 
@@ -77,9 +77,9 @@ export function FeaturesSection() {
               </div>
               
               {/* Content */}
-              <div className="p-6 md:p-8">
-                <h3 className="text-xl font-semibold text-foreground mb-3 leading-snug">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">{feature.description}</p>
+              <div className="p-5 sm:p-6 md:p-8">
+                <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-3 leading-snug">{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-xs sm:text-sm line-clamp-6 sm:line-clamp-none">{feature.description}</p>
               </div>
             </div>
           ))}
