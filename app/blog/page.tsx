@@ -148,16 +148,17 @@ export default async function BlogPage() {
                   className="group block bg-card rounded-3xl overflow-hidden border border-border/50 hover:shadow-xl transition-all duration-500"
                 >
                   <div className="grid md:grid-cols-2 gap-0">
-                    <div className="aspect-[4/3] md:aspect-[3/2] relative overflow-hidden bg-transparent flex items-center justify-center">
+                    <div className="relative overflow-hidden bg-card min-h-[200px] md:min-h-[300px] flex items-center justify-center">
                       {featured.image ? (
                         <Image
                           src={featured.image}
                           alt={featured.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          width={600}
+                          height={600}
+                          className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
                         />
                       ) : (
-                        <div className="w-full h-full bg-primary/10 flex items-center justify-center">
+                        <div className="w-full h-64 bg-primary/10 flex items-center justify-center">
                           <Tag className="w-12 h-12 text-primary/30" />
                         </div>
                       )}
@@ -211,16 +212,17 @@ export default async function BlogPage() {
                     href={`/blog/${post.slug || post.id}`}
                     className="group flex flex-col bg-card rounded-2xl overflow-hidden border border-border/50 hover:shadow-lg transition-all duration-500"
                   >
-                    <div className="aspect-[16/10] relative overflow-hidden bg-transparent flex items-center justify-center">
+                    <div className="relative overflow-hidden bg-card min-h-[180px] flex items-center justify-center">
                       {post.image ? (
                         <Image
                           src={post.image}
                           alt={post.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          width={400}
+                          height={400}
+                          className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
                         />
                       ) : (
-                        <div className="w-full h-full bg-primary/10 flex items-center justify-center">
+                        <div className="w-full h-48 bg-primary/10 flex items-center justify-center">
                           <Tag className="w-8 h-8 text-primary/30" />
                         </div>
                       )}

@@ -43,13 +43,13 @@ export function TutorialsSection() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full mb-6">
-              Behind the Scenes
+              Cat Grooming Videos
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4">
-              See What We Do
+              See Our Cat Grooming
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Watch our grooming techniques in action. From bathing to nail care, see the gentle methods we use to pamper your pets.
+              Watch our specialized cat grooming techniques in action. See the gentle, sedation-free methods we use to pamper your feline friends.
             </p>
           </div>
 

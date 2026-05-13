@@ -13,10 +13,10 @@ const features = [
   },
   {
     icon: Heart,
-    title: "Genuine care, from our family to yours.",
-    description: "At the heart of Vanity Fur Pet Parlor is a deep respect for animals. Every grooming session is guided by genuine care and compassion, treating each pet like one of our own.",
+    title: "No Sedation Cat Grooming",
+    description: "Most groomers sedate cats or refuse them entirely. We never sedate! You help hold and comfort your kitty through the 30-45 minute process, then take them home — the most stress free experience possible. Lion Cuts, Sanitary Trims, Expert matt removal, Nail Trims. Read our reviews and testimonials!",
     image: "/images/persian-cat-teal.jpg",
-    imageAlt: "Stunning white Persian cat with fluffy coat - compassionate cat grooming at Vanity Fur",
+    imageAlt: "Stunning white Persian cat with fluffy coat - no sedation cat grooming at Vanity Fur",
   },
   {
     icon: CheckCircle,

@@ -339,12 +339,13 @@ export default function AdminBlogPage() {
                     <div className="flex flex-col md:flex-row">
                       {/* Image */}
                       {post.image && (
-                        <div className="relative w-full md:w-48 h-40 md:h-auto shrink-0">
+                        <div className="relative w-full md:w-48 shrink-0 overflow-hidden bg-muted flex items-center justify-center p-2">
                           <Image
                             src={post.image}
                             alt={post.title}
-                            fill
-                            className="object-cover"
+                            width={200}
+                            height={200}
+                            className="w-full h-auto max-h-40 object-contain"
                           />
                         </div>
                       )}
