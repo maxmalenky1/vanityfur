@@ -42,10 +42,6 @@ export function DogGroomingSection() {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                  Puppy cuts
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
                   Show trims
                 </li>
                 <li className="flex items-center gap-2">
@@ -64,6 +60,14 @@ export function DogGroomingSection() {
                   <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
                   Hand scissoring
                 </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
+                  Nail trims
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
+                  Ear care
+                </li>
               </ul>
             </div>
 
@@ -76,7 +80,7 @@ export function DogGroomingSection() {
                 <div>
                   <p className="text-lg font-semibold text-foreground group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">(770) 617-1374</p>
                   <p className="text-sm text-muted-foreground">
-                    Press <strong className="text-foreground">1</strong> for Dog Grooming appointments
+                    Call to schedule your appointment
                   </p>
                 </div>
               </a>

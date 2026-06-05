@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"
 const stats = [
   {
     icon: Users,
-    value: "500+",
+    value: "1000's",
     label: "Happy Pet Parents"
   },
   {

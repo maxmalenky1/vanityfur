@@ -1,11 +1,13 @@
 import type { MetadataRoute } from 'next'
+import { getAllLocationSlugs } from '@/lib/locations'
+import { getAllServicePageSlugs } from '@/lib/service-pages'
 
 const BASE_URL = 'https://vanityfur.us'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date().toISOString()
   
-  // Core pages - only indexable public pages with consistent HTTPS URLs
+  // Core pages - high priority indexable public pages
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
@@ -49,7 +51,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
-    // Static blog posts - clean URLs without trailing slashes
+    // Locations index page
+    {
+      url: `${BASE_URL}/locations`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+  ]
+
+  // Dynamic location pages for local SEO
+  const locationSlugs = getAllLocationSlugs()
+  const locationPages: MetadataRoute.Sitemap = locationSlugs.map((slug) => ({
+    url: `${BASE_URL}/locations/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
+  // Service-specific landing pages for topical authority
+  const serviceSlugs = getAllServicePageSlugs()
+  const serviceDetailPages: MetadataRoute.Sitemap = serviceSlugs.map((slug) => ({
+    url: `${BASE_URL}/services/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+  }))
+
+  // Blog posts
+  const blogPosts: MetadataRoute.Sitemap = [
     {
       url: `${BASE_URL}/blog/what-is-noose-free-grooming`,
       lastModified: '2026-01-15',
@@ -88,9 +118,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
+  // Combine all pages
+  return [...staticPages, ...locationPages, ...serviceDetailPages, ...blogPosts]
+
   // Excluded from sitemap (not indexed):
   // - /admin/* (protected admin pages)
   // - /api/* (API routes)
-
-  return staticPages
 }

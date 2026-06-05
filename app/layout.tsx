@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Inter, Great_Vibes } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
+import { LocalBusinessJsonLd, WebsiteJsonLd, FAQJsonLd } from '@/components/seo/json-ld'
 import './globals.css'
 
 export const viewport: Viewport = {
@@ -97,6 +98,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${_playfair.variable} ${_inter.variable} ${_greatVibes.variable}`} suppressHydrationWarning>
+      <head>
+        <LocalBusinessJsonLd />
+        <WebsiteJsonLd />
+        <FAQJsonLd />
+      </head>
       <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"

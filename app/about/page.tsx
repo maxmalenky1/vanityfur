@@ -25,7 +25,7 @@ const team = [
     name: "Tracey",
     role: "Owner & Master Groomer",
     initials: "T",
-    image: "/images/tracy.png",
+    image: "/images/tracey-with-dog.png",
     bio: "I grew up in Powder Springs on a small farm and have been passionate about my love for animals all of my life! I always dreamed of becoming a Vet and began working at an animal hospital at 18 and later as a Vet Tech. I discovered that to be a Vet was much too sad of a profession, surrounded by tragedy and death every day. I decided to follow my other passion, technical drawing and art as an Architect. But I did not find what I wanted at Southern Tech. I finally found my perfect fit when I met my mentor, Donna Haas, of Puppy Toes Grooming. I left college and began my apprenticeship with her in 1985. I have never looked back! This is truly my calling and I am so blessed to have a profession that I truly still enjoy and love, even after almost 35 years!"
   },
   {
